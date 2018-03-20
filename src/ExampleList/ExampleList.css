@@ -1,0 +1,39 @@
+.grid {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    width: 100%;
+}
+.col {
+    flex: 1;
+    max-width: 32%;
+    min-width: 32%;
+}
+.col > a {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.col img {
+    max-height: 200px;
+    max-width: 100%;
+    padding: 10px;
+    width: auto;
+}
+.col p {
+    min-height: 20px;
+    text-align: center;
+    width: 100%;
+}
+@media (max-width: 768px) {
+    .col {
+        max-width: 50%;
+        min-width: 50%;
+    }
+}
+@media (max-width: 468px) {
+    .col {
+        max-width: 100%;
+        min-width: 100%;
+    }
+}
