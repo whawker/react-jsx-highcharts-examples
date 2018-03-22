@@ -1,0 +1,8 @@
+.sparkline-example .highcharts-container {
+  overflow: visible !important;
+}
+
+.sparkline-example .highcharts-tooltip > span {
+  min-width: 120px;
+  width: auto !important;
+}
