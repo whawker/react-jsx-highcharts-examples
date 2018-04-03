@@ -9,6 +9,6 @@ export default ({ name, children }) => (
     <pre>
       <PrismCode className="language-jsx">{children}</PrismCode>
     </pre>
-    <a href={`https://github.com/whawker/react-jsx-highcharts/blob/gh-pages/examples/${name}/App.js`} className="btn btn-link">See full example code</a>
+    <a href={`https://github.com/whawker/react-jsx-highcharts-examples/blob/master/src/${name}/${name}.js`} className="btn btn-link">See full example code</a>
   </div>
 );
