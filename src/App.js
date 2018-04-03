@@ -1,5 +1,6 @@
 import React from 'react';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
+import ScrollToTop from './ScrollToTop';
 import Example from './Example';
 import ExampleList from './ExampleList';
 import SimpleLine from './SimpleLine';
@@ -29,37 +30,39 @@ import 'whatwg-fetch';
 
 const App = () => (
   <BrowserRouter>
-    <Switch>
-      <Route exact path="/" component={ExampleList} />
-      <Route path="/:page">
-        <Example>
-          <Switch>
-            <Route path="/SimpleLine" component={SimpleLine} />
-            <Route path="/InvertedChart" component={InvertedChart} />
-            <Route path="/SplineWithPlotBands" component={SplineWithPlotBands} />
-            <Route path="/Combo" component={Combo} />
-            <Route path="/Funnel" component={Funnel} />
-            <Route path="/AddSeries" component={AddSeries} />
-            <Route path="/Events" component={Events} />
-            <Route path="/LiveUpdate" component={LiveUpdate} />
-            <Route path="/ImmutableJS" component={ImmutableJS} />
-            <Route path="/SynchronisedCharts" component={SynchronisedCharts} />
-            <Route path="/Reflow" component={Reflow} />
-            <Route path="/Loading" component={Loading} />
-            <Route path="/Treemap" component={Treemap} />
-            <Route path="/TreemapDrilldown" component={TreemapDrilldown} />
-            <Route path="/StyleByCSS" component={StyleByCSS} />
-            <Route path="/Sparkline" component={Sparkline} />
-            <Route path="/3DChart" component={ThreeDChart} />
-            <Route path="/Sankey" component={Sankey} />
-            <Route path="/StreamGraph" component={StreamGraph} />
-            <Route path="/Highstocks" component={Highstocks} />
-            <Route path="/HighstockPlotBands" component={HighstockPlotBands} />
-            <Route path="/CustomComponent" component={CustomComponent} />
-          </Switch>
-        </Example>
-      </Route>
-    </Switch>
+    <ScrollToTop>
+      <Switch>
+        <Route exact path="/" component={ExampleList} />
+        <Route path="/:page">
+          <Example>
+            <Switch>
+              <Route path="/SimpleLine" component={SimpleLine} />
+              <Route path="/InvertedChart" component={InvertedChart} />
+              <Route path="/SplineWithPlotBands" component={SplineWithPlotBands} />
+              <Route path="/Combo" component={Combo} />
+              <Route path="/Funnel" component={Funnel} />
+              <Route path="/AddSeries" component={AddSeries} />
+              <Route path="/Events" component={Events} />
+              <Route path="/LiveUpdate" component={LiveUpdate} />
+              <Route path="/ImmutableJS" component={ImmutableJS} />
+              <Route path="/SynchronisedCharts" component={SynchronisedCharts} />
+              <Route path="/Reflow" component={Reflow} />
+              <Route path="/Loading" component={Loading} />
+              <Route path="/Treemap" component={Treemap} />
+              <Route path="/TreemapDrilldown" component={TreemapDrilldown} />
+              <Route path="/StyleByCSS" component={StyleByCSS} />
+              <Route path="/Sparkline" component={Sparkline} />
+              <Route path="/3DChart" component={ThreeDChart} />
+              <Route path="/Sankey" component={Sankey} />
+              <Route path="/StreamGraph" component={StreamGraph} />
+              <Route path="/Highstocks" component={Highstocks} />
+              <Route path="/HighstockPlotBands" component={HighstockPlotBands} />
+              <Route path="/CustomComponent" component={CustomComponent} />
+            </Switch>
+          </Example>
+        </Route>
+      </Switch>
+    </ScrollToTop>
   </BrowserRouter>
 );
 
