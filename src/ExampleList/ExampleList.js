@@ -67,7 +67,7 @@ const ExampleList = () => (
           <img src="https://user-images.githubusercontent.com/2003804/28994982-77bc7998-79d4-11e7-903f-cc61b4f89c4a.png" alt="ImmutableJS" />
           <h4>Immutable.js Data Structures</h4>
         </Link>
-        <p>(Requires <a href="https://facebook.github.io/immutable-js/" target="_blank"><code>Immutable</code></a>)</p>
+        <p>(Requires <a href="https://facebook.github.io/immutable-js/" target="_blank" rel="noopener noreferrer"><code>Immutable</code></a>)</p>
       </div>
       <div className="col">
         <Link to="SynchronisedCharts">
@@ -138,6 +138,31 @@ const ExampleList = () => (
           <h4>Stream Graph</h4>
         </Link>
         <p>(Requires <code>highcharts 6+</code> & <code>streamgraph</code> extension)</p>
+      </div>
+    </div>
+
+    <h1><code>react-jsx-highstock</code> Examples</h1>
+    <div className="grid">
+      <div className="col">
+        <Link to="Highstocks">
+          <img src="https://user-images.githubusercontent.com/2003804/28792315-15357154-7627-11e7-8c73-3df7d564e49c.png" alt="Highstock" />
+          <h4>Highstock chart</h4>
+        </Link>
+        <p></p>
+      </div>
+      <div className="col">
+        <Link to="HighstockPlotBands">
+          <img src="https://user-images.githubusercontent.com/2003804/29004791-b5dfff00-7ac5-11e7-8845-d6dd3943e4e2.png" alt="HighstockPlotBands" />
+          <h4>Highstock with Navigator Plot Bands</h4>
+        </Link>
+        <p></p>
+      </div>
+      <div className="col">
+        <Link to="CustomComponent">
+          <img src="https://user-images.githubusercontent.com/2003804/28792318-153a0746-7627-11e7-883f-f28b03bcd386.png" alt="CustomComponent" />
+          <h4>Custom components</h4>
+        </Link>
+        <p>(Using <a href="http://react-day-picker.js.org/" target="_blank" rel="noopener noreferrer"><code>react-day-picker</code></a> Date Pickers)</p>
       </div>
     </div>
   </div>

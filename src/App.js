@@ -21,6 +21,9 @@ import Sparkline from './Sparkline';
 import ThreeDChart from './3DChart';
 import Sankey from './Sankey';
 import StreamGraph from './StreamGraph';
+import Highstocks from './Highstocks';
+import HighstockPlotBands from './HighstockPlotBands';
+import CustomComponent from './CustomComponent';
 
 import 'whatwg-fetch';
 
@@ -50,6 +53,9 @@ const App = () => (
             <Route path="/3DChart" component={ThreeDChart} />
             <Route path="/Sankey" component={Sankey} />
             <Route path="/StreamGraph" component={StreamGraph} />
+            <Route path="/Highstocks" component={Highstocks} />
+            <Route path="/HighstockPlotBands" component={HighstockPlotBands} />
+            <Route path="/CustomComponent" component={CustomComponent} />
           </Switch>
         </Example>
       </Route>
