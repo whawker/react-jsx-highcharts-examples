@@ -79,6 +79,7 @@ class SynchronisedCharts extends Component {
 
     e.persist();
     Highcharts.charts.forEach(chart => {
+      if (!chart) return;
       event = chart.pointer.normalize(e); // Find coordinates within the chart
       point = chart.series[0].searchPoint(event, true); // Get the hovered point
       if (point) {

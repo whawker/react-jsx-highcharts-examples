@@ -38,8 +38,10 @@ class DateRangePickers extends Component {
   componentWillUnmount () {
     const { getHighcharts, getAxis } = this.props;
     const Highcharts = getHighcharts(); // Get Highcharts injected via withHighcharts
-
-    Highcharts.removeEvent(getAxis(), 'afterSetExtremes', this.handleAfterSetExtremes);
+    const axis = getAxis();
+    if (axis) {
+      Highcharts.removeEvent(axis, 'afterSetExtremes', this.handleAfterSetExtremes);
+    }
   }
 
   handleFromDateChange (fromDate) {
