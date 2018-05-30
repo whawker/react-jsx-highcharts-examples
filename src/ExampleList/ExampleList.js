@@ -4,7 +4,9 @@ import './ExampleList.css';
 
 const ExampleList = () => (
   <div>
-    <h1><code>react-jsx-highcharts</code> Examples</h1>
+    <img src="https://user-images.githubusercontent.com/2003804/40681848-2d0f5ce2-6382-11e8-8ce9-cd49c409ad2e.png" alt="React JSX Highcharts" />
+    <h1><span className="sr-only">React JSX Highcharts</span> Examples</h1>
+
     <div className="grid">
       <div className="col">
         <Link to="SimpleLine">
@@ -141,7 +143,10 @@ const ExampleList = () => (
       </div>
     </div>
 
-    <h1><code>react-jsx-highstock</code> Examples</h1>
+
+    <img src="https://user-images.githubusercontent.com/2003804/40682476-c1ea6be4-6383-11e8-826c-a617db5ef726.png" alt="React JSX Highstock" />
+    <h2><span className="sr-only">React JSX Highstock</span> Examples</h2>
+
     <div className="grid">
       <div className="col">
         <Link to="Highstocks">

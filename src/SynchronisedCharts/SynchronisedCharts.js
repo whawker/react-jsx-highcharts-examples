@@ -50,9 +50,8 @@ class SynchronisedCharts extends Component {
       <HighchartsChart key={dataset.name}>
         <Title align="left" margin={30} x={30}>{dataset.name}</Title>
         <XAxis crosshair labels={{format: '{value} km'}} />
-        <YAxis id="y">
+        <YAxis>
           <Series
-            id={dataset.name}
             name={dataset.name}
             type={dataset.type}
             data={data}

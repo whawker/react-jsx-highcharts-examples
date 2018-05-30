@@ -39,8 +39,8 @@ const Sankey = () => {
 
         <XAxis type="category" />
 
-        <YAxis id="y">
-          <SankeySeries id="sankey" name="Sankey demo series" data={formattedData} keys={['from', 'to', 'weight']} />
+        <YAxis>
+          <SankeySeries name="Sankey demo series" data={formattedData} keys={['from', 'to', 'weight']} />
         </YAxis>
 
         <Tooltip />

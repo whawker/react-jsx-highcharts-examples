@@ -17,12 +17,13 @@ class DateRangePickers extends Component {
   }
 
   componentDidMount () {
-    const { getHighcharts, getAxis, getExtremes } = this.props;
+    const { getHighcharts, getAxis } = this.props;
     const Highcharts = getHighcharts(); // Get Highcharts injected via withHighcharts
+    const axis = getAxis();
 
-    Highcharts.addEvent(getAxis(), 'afterSetExtremes', this.handleAfterSetExtremes);
+    Highcharts.addEvent(axis.object, 'afterSetExtremes', this.handleAfterSetExtremes);
 
-    const { min, max } = getExtremes();
+    const { min, max } = axis.getExtremes();
     this.setState({
       min,
       max
@@ -33,25 +34,27 @@ class DateRangePickers extends Component {
     const { getHighcharts, getAxis } = this.props;
     const Highcharts = getHighcharts(); // Get Highcharts injected via withHighcharts
     const axis = getAxis();
-    if (axis) {
-      Highcharts.removeEvent(axis, 'afterSetExtremes', this.handleAfterSetExtremes);
+    if (axis.object) {
+      Highcharts.removeEvent(axis.object, 'afterSetExtremes', this.handleAfterSetExtremes);
     }
   }
 
   handleFromDateChange (fromDate) {
-    let { max } = this.props.getExtremes();
+    const axis = this.props.getAxis();
+    let { max } = axis.getExtremes();
     let selectedTime = fromDate.startOf('day').valueOf();
 
     let newMax = (selectedTime >= max) ? selectedTime + 86400000 : max;
-    this.props.setExtremes(selectedTime, newMax);
+    axis.setExtremes(selectedTime, newMax);
   }
 
   handleToDateChange (toDate) {
-    let { min } = this.props.getExtremes();
+    const axis = this.props.getAxis();
+    let { min } = axis.getExtremes();
     let selectedTime = toDate.startOf('day').valueOf();
 
     let newMin = (selectedTime <= min) ? selectedTime - 86400000 : min;
-    this.props.setExtremes(newMin, selectedTime);
+    axis.setExtremes(newMin, selectedTime);
   }
 
   handleAfterSetExtremes (e) {
@@ -63,8 +66,6 @@ class DateRangePickers extends Component {
   }
 
   render () {
-    const axis = this.props.getAxis();
-    if (!axis) return null;
     const { min, max } = this.state;
 
     const fromDate = moment(min).format(DAY_FORMAT);

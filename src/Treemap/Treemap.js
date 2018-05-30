@@ -47,8 +47,8 @@ class Treemap extends Component {
 
           <XAxis />
 
-          <YAxis id="value">
-            <TreemapSeries id="tree" name="Tree" data={treemapData} layoutAlgorithm="squarified" />
+          <YAxis>
+            <TreemapSeries name="Tree" data={treemapData} layoutAlgorithm="squarified" />
           </YAxis>
         </HighchartsChart>
 

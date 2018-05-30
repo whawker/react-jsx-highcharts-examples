@@ -48,7 +48,7 @@ class App extends Component {
   renderPlotBand = ({ from, to, title }) => {
     const id = `band-${from}-${to}`;
     return (
-      <PlotBand id={id} key={id} from={from} to={to} color="rgba(68, 170, 213, 0.3)">
+      <PlotBand key={id} from={from} to={to} color="rgba(68, 170, 213, 0.3)">
         <PlotBand.Label>{title}</PlotBand.Label>
       </PlotBand>
     );
@@ -57,7 +57,7 @@ class App extends Component {
   renderNavPlotBand = ({ from, to }) => {
     const id = `nav-band-${from}-${to}`;
     return (
-      <PlotBand id={id} key={id} from={from} to={to} color="rgba(68, 170, 213, 0.3)" />
+      <PlotBand key={id} from={from} to={to} color="rgba(68, 170, 213, 0.3)" />
     );
   }
 
@@ -76,7 +76,7 @@ class App extends Component {
             {campaigns.map(this.renderPlotBand)}
           </XAxis>
 
-          <YAxis id="sales">
+          <YAxis>
             <YAxis.Title>Cars sold per day</YAxis.Title>
             <AreaSplineSeries id="unitSales" name="Unit Sales" data={unitSales} />
             <FlagSeries id="events" onSeries="unitSales" data={notableEvents} />

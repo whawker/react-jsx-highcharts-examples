@@ -57,7 +57,7 @@ class AddSeries extends Component {
 
   renderSeries = ({ name, data }) => {
     return (
-      <LineSeries id={name} name={name} key={name} data={data} />
+      <LineSeries name={name} key={name} data={data} />
     );
   }
 
@@ -76,7 +76,7 @@ class AddSeries extends Component {
             <XAxis.Title>Time</XAxis.Title>
           </XAxis>
 
-          <YAxis id="price">
+          <YAxis>
             <YAxis.Title>Price</YAxis.Title>
             {this.state.series.map(this.renderSeries)}
           </YAxis>

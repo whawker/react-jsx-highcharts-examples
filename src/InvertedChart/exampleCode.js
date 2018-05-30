@@ -22,7 +22,7 @@ render () {
       <HighchartsChart plotOptions={plotOptions}>
         <Chart inverted marginLeft={300} height={650} />
 
-        <Title>Premier League Goal Stats: 1992-93 to 2016-17</Title>
+        <Title>Premier League Goal Stats: 1992-93 to 2017-18</Title>
 
         <Subtitle>Source: myfootballfacts.com</Subtitle>
 
@@ -30,12 +30,12 @@ render () {
           <XAxis.Title>Season</XAxis.Title>
         </XAxis>
 
-        <YAxis id="total" min={800} gridLineWidth={0} labels={{ enabled: false }}>
-          <AreaSplineSeries id="totalGoals" name="Total Goals" data={totalGoals} color="#38003c" />
+        <YAxis min={800} gridLineWidth={0} labels={{ enabled: false }}>
+          <AreaSplineSeries name="Total Goals" data={totalGoals} color="#38003c" />
         </YAxis>
 
-        <YAxis id="average" min={2.4} max={5} gridLineWidth={0} labels={{ enabled: false }}>
-          <AreaSplineSeries id="avgGoalsPerGame" name="Average Goals per Game" data={avgGoalsPerGame} color="#e90052" />
+        <YAxis min={2.4} max={7} gridLineWidth={0} labels={{ enabled: false }}>
+          <AreaSplineSeries name="Average Goals per Game" data={avgGoalsPerGame} color="#e90052" />
         </YAxis>
 
         <Tooltip shared positioner={positioner} backgroundColor="transparent" borderWidth={0} shadow={false} />
