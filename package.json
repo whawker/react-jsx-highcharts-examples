@@ -16,6 +16,7 @@
     "react-jsx-highcharts": "^3.0.0",
     "react-jsx-highstock": "^3.0.0",
     "react-prism": "^4.3.2",
+    "react-responsive": "^4.1.0",
     "react-router-dom": "^4.2.2",
     "react-scripts": "1.1.1",
     "whatwg-fetch": "^2.0.3"

@@ -93,11 +93,11 @@ const ExampleList = () => (
         <p></p>
       </div>
       <div className="col">
-        <Link to="Treemap">
-          <img src="https://user-images.githubusercontent.com/2003804/29355276-4c583c32-8268-11e7-81a3-2c4edc01e122.png" alt="Treemap" />
-          <h4>Treemap chart</h4>
+        <Link to="Responsive">
+          <img src="https://user-images.githubusercontent.com/2003804/40889762-539d6bde-6764-11e8-9365-0fd5c8c8de7c.png" alt="Responsive" />
+          <h4>Responsive</h4>
         </Link>
-        <p>(Requires <code>treemap</code> and <code>heatmap</code> module)</p>
+        <p>(Using <a href="https://www.npmjs.com/package/react-responsive" target="_blank" rel="noopener noreferrer"><code>react-responsive</code></a>)</p>
       </div>
       <div className="col">
         <Link to="TreemapDrilldown">
