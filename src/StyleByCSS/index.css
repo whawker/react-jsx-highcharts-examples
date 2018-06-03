@@ -1,6 +1,6 @@
 @import url(https://fonts.googleapis.com/css?family=Unica+One);
 
-.my-styled-chart .highcharts-title, .highcharts-subtitle {
+.my-styled-chart .highcharts-title, .my-styled-chart .highcharts-subtitle {
     text-transform: uppercase;
 }
 
@@ -16,7 +16,7 @@
     stroke-width: 1px;
 }
 
-.my-styled-chart .highcharts-axis-labels, .highcharts-axis-title {
+.my-styled-chart .highcharts-axis-labels, .my-styled-chart .highcharts-axis-title {
     fill: #E0E0E3;
 }
 
@@ -100,7 +100,7 @@
     fill: #2a2a2b;
 }
 
-.my-styled-chart .highcharts-plot-border, .highcharts-plot-background {
+.my-styled-chart .highcharts-plot-border, .my-styled-chart .highcharts-plot-background {
     fill: none;
 }
 
@@ -240,7 +240,7 @@
 }
 
 /* Legend hover affects points and series */
-g.highcharts-series,
+.my-styled-chart g.highcharts-series,
 .my-styled-chart .highcharts-point,
 .my-styled-chart .highcharts-markers,
 .my-styled-chart .highcharts-data-labels {
@@ -504,7 +504,7 @@ g.highcharts-series,
 }
 
 /* Plot bands and polar pane backgrounds */
-.my-styled-chart .highcharts-plot-band, .highcharts-pane {
+.my-styled-chart .highcharts-plot-band, .my-styled-chart .highcharts-pane {
     fill: #fff;
     fill-opacity: 0.05;
 }
@@ -708,7 +708,7 @@ g.highcharts-series,
     stroke: #505053;
 }
 
-input.highcharts-range-selector {
+.my-styled-chart input.highcharts-range-selector {
     position: absolute;
     border: 0;
     width: 1px;
@@ -846,7 +846,7 @@ input.highcharts-range-selector {
 }
 
 .my-styled-chart .highcharts-drilldown-data-label text,
-text.highcharts-drilldown-data-label,
+.my-styled-chart text.highcharts-drilldown-data-label,
 .my-styled-chart .highcharts-drilldown-axis-label {
     cursor: pointer;
     fill: #F0F0F3;
