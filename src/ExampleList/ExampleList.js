@@ -141,6 +141,20 @@ const ExampleList = () => (
         </Link>
         <p>(Requires <code>highcharts 6+</code> & <code>streamgraph</code> extension)</p>
       </div>
+      <div className="col">
+        <Link to="Polar">
+          <img src="https://user-images.githubusercontent.com/2003804/41313358-a679ddaa-6e81-11e8-9c32-63fd2a793130.png" alt="Polar"/>
+          <h4>Polar Axis</h4>
+        </Link>
+        <p>(Requires <code>highcharts-more</code> module)</p>
+      </div>
+      <div className="col">
+        <Link to="Gauge">
+          <img src="https://user-images.githubusercontent.com/2003804/41313357-a65e432e-6e81-11e8-9a5c-946116030493.png" alt="Gauge"/>
+          <h4>Solid Gauge</h4>
+        </Link>
+        <p>(Requires <code>highcharts-more</code> and <code>solid-gauge</code> modules)</p>
+      </div>
     </div>
 
 

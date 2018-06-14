@@ -26,6 +26,8 @@ import Highstocks from './Highstocks';
 import HighstockPlotBands from './HighstockPlotBands';
 import CustomComponent from './CustomComponent';
 import Responsive from './Responsive';
+import Gauge from './Gauge';
+import Polar from './Polar';
 
 import 'whatwg-fetch';
 
@@ -60,6 +62,8 @@ const App = () => (
               <Route path="/HighstockPlotBands" component={HighstockPlotBands} />
               <Route path="/CustomComponent" component={CustomComponent} />
               <Route path="/Responsive" component={Responsive} />
+              <Route path="/Gauge" component={Gauge} />
+              <Route path="/Polar" component={Polar} />
             </Switch>
           </Example>
         </Route>
