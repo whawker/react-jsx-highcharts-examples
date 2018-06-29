@@ -3,7 +3,7 @@
   "version": "0.2.0",
   "private": true,
   "dependencies": {
-    "highcharts": "~6.0.7",
+    "highcharts": "~6.1.1",
     "immutable": "^3.8.2",
     "lodash": "^4.17.5",
     "moment": "^2.22.0",
