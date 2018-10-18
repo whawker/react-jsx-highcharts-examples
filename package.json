@@ -18,7 +18,7 @@
     "react-prism": "^4.3.2",
     "react-responsive": "^4.1.0",
     "react-router-dom": "^4.2.2",
-    "react-scripts": "1.1.1",
+    "react-scripts": "2.0.5",
     "whatwg-fetch": "^2.0.3"
   },
   "scripts": {
@@ -26,5 +26,14 @@
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
+  },
+  "browserslist": [
+    ">0.2%",
+    "not dead",
+    "not ie <= 11",
+    "not op_mini all"
+  ],
+  "devDependencies": {
+    "node-sass": "^4.9.4"
   }
 }

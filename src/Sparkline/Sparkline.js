@@ -6,7 +6,7 @@ import Highcharts from 'highcharts';
 import mapValues from 'lodash/mapValues';
 import ExampleCode from '../utils/ExampleCode';
 import code from './exampleCode';
-import './index.css';
+import './index.scss';
 
 Highcharts.setOptions({
   lang: { thousandsSep: ',' }

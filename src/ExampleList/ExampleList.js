@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import './ExampleList.css';
+import './ExampleList.scss';
 
 const ExampleList = () => (
   <div>

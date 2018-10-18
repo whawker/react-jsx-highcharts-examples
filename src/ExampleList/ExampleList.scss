@@ -4,38 +4,40 @@
     align-items: flex-start;
     width: 100%;
 }
+
 .col {
-    flex: 1;
-    max-width: 32%;
-    min-width: 32%;
-}
-.col > a {
+  flex: 1;
+  max-width: 32%;
+  min-width: 32%;
+
+  > a {
     display: flex;
     flex-direction: column;
     align-items: center;
-}
-.col img {
+  }
+
+  img {
     max-height: 200px;
     padding: 10px;
     width: auto;
-}
-.col p {
+  }
+
+  p {
     min-height: 20px;
     text-align: center;
     width: 100%;
-}
-img {
+  }
+
+  @media (max-width: 768px) {
+    max-width: 50%;
+    min-width: 50%;
+  }
+  @media (max-width: 468px) {
     max-width: 100%;
+    min-width: 100%;
+  }
 }
-@media (max-width: 768px) {
-    .col {
-        max-width: 50%;
-        min-width: 50%;
-    }
-}
-@media (max-width: 468px) {
-    .col {
-        max-width: 100%;
-        min-width: 100%;
-    }
+
+img {
+  max-width: 100%;
 }

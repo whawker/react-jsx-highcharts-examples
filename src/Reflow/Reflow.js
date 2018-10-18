@@ -6,7 +6,7 @@ import {
 } from 'react-jsx-highcharts';
 import ExampleCode from '../utils/ExampleCode';
 import code from './exampleCode';
-import './index.css';
+import './index.scss';
 
 const plotOptions =  {
   spline: {

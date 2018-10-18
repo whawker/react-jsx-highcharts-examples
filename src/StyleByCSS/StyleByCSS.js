@@ -5,7 +5,7 @@ import {
 } from 'react-jsx-highcharts';
 import ExampleCode from '../utils/ExampleCode';
 import code from './exampleCode';
-import './index.css'; // CSS Styles
+import './index.scss'; // CSS Styles
 
 const MONTHS = [
   'Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun',

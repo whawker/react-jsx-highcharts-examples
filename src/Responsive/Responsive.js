@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import LeagueTableChart from './LeagueTableChart';
 import ExampleCode from '../utils/ExampleCode';
 import code from './exampleCode';
-import './index.css';
+import './index.scss';
 
 class Responsive extends Component {
   state = {
