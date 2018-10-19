@@ -164,7 +164,6 @@ const ExampleList = () => (
       </div>
     </div>
 
-
     <img src="https://user-images.githubusercontent.com/2003804/40682476-c1ea6be4-6383-11e8-826c-a617db5ef726.png" alt="React JSX Highstock" />
     <h2><span className="sr-only">React JSX Highstock</span> Examples</h2>
 
@@ -189,6 +188,26 @@ const ExampleList = () => (
           <h4>Custom components</h4>
         </Link>
         <p>(Using <a href="http://react-day-picker.js.org/" target="_blank" rel="noopener noreferrer"><code>react-day-picker</code></a> Date Pickers)</p>
+      </div>
+    </div>
+
+    <img src="https://user-images.githubusercontent.com/2003804/47213017-ac588080-d391-11e8-8711-9e7c4e2fadec.png" alt="React JSX Highmaps" />
+    <h2><span className="sr-only">React JSX Highmaps</span> Examples</h2>
+
+    <div className="grid">
+      <div className="col">
+        <Link to="Map">
+          <img src="https://user-images.githubusercontent.com/2003804/47213289-6fd95480-d392-11e8-8dcb-f8243f435017.png" alt="Map"/>
+          <h4>Simple Map</h4>
+        </Link>
+        <p></p>
+      </div>
+      <div className="col">
+        <Link to="MapBubble">
+          <img src="https://user-images.githubusercontent.com/2003804/47213455-00179980-d393-11e8-904b-4be46615e8de.png" alt="MapBubble"/>
+          <h4>Map Bubble with Latitude and Longitude</h4>
+        </Link>
+        <p>(Requires the <code>Proj4js</code> library)</p>
       </div>
     </div>
   </div>

@@ -28,6 +28,8 @@ import CustomComponent from './CustomComponent';
 import Responsive from './Responsive';
 import Gauge from './Gauge';
 import Polar from './Polar';
+import Map from './Map';
+import MapBubble from './MapBubble';
 
 import 'whatwg-fetch';
 
@@ -64,6 +66,8 @@ const App = () => (
               <Route path="/Responsive" component={Responsive} />
               <Route path="/Gauge" component={Gauge} />
               <Route path="/Polar" component={Polar} />
+              <Route path="/Map" component={Map} />
+              <Route path="/MapBubble" component={MapBubble} />
             </Switch>
           </Example>
         </Route>
