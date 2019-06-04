@@ -6,13 +6,9 @@ import {
 import ExampleCode from '../utils/ExampleCode';
 import code from './exampleCode';
 
-Highcharts.Pointer.prototype.reset = () => {};
-
-Highcharts.Point.prototype.highlight = function (event) {
-  this.onMouseOver(); // Show the hover marker
-  this.series.chart.tooltip.refresh(this); // Show the tooltip
-  this.series.chart.xAxis[0].drawCrosshair(event, this); // Show the crosshair
-};
+// Cache the default values to restore when this example unmounts
+const oldReset = Highcharts.Pointer.prototype.reset;
+const oldHighlight = Highcharts.Point.prototype.highlight;
 
 class SynchronisedCharts extends Component {
 
@@ -21,6 +17,15 @@ class SynchronisedCharts extends Component {
 
     this.state = {
       chartData: null
+    };
+
+    // Override the Highcharts prototypes here, so they only apply to this example
+    Highcharts.Pointer.prototype.reset = () => {};
+
+    Highcharts.Point.prototype.highlight = function (event) {
+      this.onMouseOver(); // Show the hover marker
+      this.series.chart.tooltip.refresh(this); // Show the tooltip
+      this.series.chart.xAxis[0].drawCrosshair(event, this); // Show the crosshair
     };
   }
 
@@ -37,6 +42,12 @@ class SynchronisedCharts extends Component {
           chartData: json
         })
       });
+  }
+
+  componentWillUnmount () {
+    // Restore the cached defaults
+    Highcharts.Pointer.prototype.reset = oldReset;
+    Highcharts.Point.prototype.highlight = oldHighlight;
   }
 
   renderChart = (dataset, index) => {
