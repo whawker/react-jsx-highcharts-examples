@@ -21,6 +21,7 @@ import StyleByCSS from './StyleByCSS';
 import Sparkline from './Sparkline';
 import ThreeDChart from './3DChart';
 import Sankey from './Sankey';
+import DependencyWheel from './DependencyWheel';
 import StreamGraph from './StreamGraph';
 import Highstocks from './Highstocks';
 import HighstockPlotBands from './HighstockPlotBands';
@@ -59,6 +60,7 @@ const App = () => (
               <Route path="/Sparkline" component={Sparkline} />
               <Route path="/3DChart" component={ThreeDChart} />
               <Route path="/Sankey" component={Sankey} />
+              <Route path="/DependencyWheel" component={DependencyWheel} />
               <Route path="/StreamGraph" component={StreamGraph} />
               <Route path="/Highstocks" component={Highstocks} />
               <Route path="/HighstockPlotBands" component={HighstockPlotBands} />
