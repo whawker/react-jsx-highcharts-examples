@@ -25,7 +25,6 @@ import DependencyWheel from './DependencyWheel';
 import StreamGraph from './StreamGraph';
 import Highstocks from './Highstocks';
 import HighstockPlotBands from './HighstockPlotBands';
-import CustomComponent from './CustomComponent';
 import Responsive from './Responsive';
 import Gauge from './Gauge';
 import Polar from './Polar';
@@ -64,7 +63,6 @@ const App = () => (
               <Route path="/StreamGraph" component={StreamGraph} />
               <Route path="/Highstocks" component={Highstocks} />
               <Route path="/HighstockPlotBands" component={HighstockPlotBands} />
-              <Route path="/CustomComponent" component={CustomComponent} />
               <Route path="/Responsive" component={Responsive} />
               <Route path="/Gauge" component={Gauge} />
               <Route path="/Polar" component={Polar} />
