@@ -14,7 +14,6 @@ const Funnel = lazy(() => import('./Funnel'));
 const AddSeries = lazy(() => import('./AddSeries'));
 const Events = lazy(() => import('./Events'));
 const LiveUpdate = lazy(() => import('./LiveUpdate'));
-const ImmutableJS = lazy(() => import('./ImmutableJS'));
 const SynchronisedCharts = lazy(() => import('./SynchronisedCharts'));
 const Reflow = lazy(() => import('./Reflow'));
 const Loading = lazy(() => import('./Loading'));
@@ -51,7 +50,6 @@ const App = () => (
               <AsyncRoute path="/AddSeries" component={AddSeries} />
               <AsyncRoute path="/Events" component={Events} />
               <AsyncRoute path="/LiveUpdate" component={LiveUpdate} />
-              <AsyncRoute path="/ImmutableJS" component={ImmutableJS} />
               <AsyncRoute path="/SynchronisedCharts" component={SynchronisedCharts} />
               <AsyncRoute path="/Reflow" component={Reflow} />
               <AsyncRoute path="/Loading" component={Loading} />
