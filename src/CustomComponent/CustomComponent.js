@@ -45,7 +45,7 @@ class App extends Component {
             <AreaSplineSeries id="profit" name="Profit" data={data1} />
           </YAxis>
 
-          <DateRangePickers axisId="xAxis" />
+          <DateRangePickers />
 
           <Navigator>
             <Navigator.Series seriesId="profit" />
