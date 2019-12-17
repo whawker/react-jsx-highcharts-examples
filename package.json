@@ -4,24 +4,24 @@
   "private": true,
   "dependencies": {
     "date-fns": "^2.4.1",
-    "highcharts": "^7.2.0",
+    "highcharts": "^8.0.0",
     "lodash": "^4.17.5",
     "prismjs": "^1.12.2",
     "proj4": "^2.5.0",
     "prop-types": "^15.6.1",
     "re-resizable": "^4.4.6",
-    "react": "^16.9.0",
+    "react": "^16.12.0",
     "react-day-picker": "^7.3.2",
-    "react-dom": "^16.9.0",
-    "react-jsx-highcharts": "^4.0.0-alpha.6",
-    "react-jsx-highmaps": "^2.0.0-alpha.6",
-    "react-jsx-highstock": "^4.0.0-alpha.6",
+    "react-dom": "^16.12.0",
+    "react-jsx-highcharts": "^4.0.0",
+    "react-jsx-highmaps": "^2.0.0",
+    "react-jsx-highstock": "^4.0.0",
     "react-prism": "^4.3.2",
     "react-request": "^3.1.2",
     "react-responsive": "^4.1.0",
-    "react-router-dom": "^4.2.2",
-    "react-scripts": "2.0.5",
-    "whatwg-fetch": "^2.0.3"
+    "react-router-dom": "^5.1.2",
+    "react-scripts": "3.3.0",
+    "whatwg-fetch": "^2.0.4"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -36,6 +36,6 @@
     "not op_mini all"
   ],
   "devDependencies": {
-    "node-sass": "^4.9.4"
+    "node-sass": "^4.13.0"
   }
 }
