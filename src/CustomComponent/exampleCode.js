@@ -8,27 +8,27 @@ const DateRangePickers = () => {
   const [from, setFrom] = useState(null);
   const [to, setTo] = useState(null);
 
-  const handleFromDateChange = fromDate => {
+  const handleFromDateChange = useCallback(fromDate => {
     const newMin = startOfDay(fromDate).valueOf();
     const newMax = (newMin >= to) ? newMin + ONE_DAY : to.valueOf();
 
     axis.setExtremes(newMin, newMax);
-  };
+  },[to, axis]);
 
-  const handleToDateChange = toDate => {
+  const handleToDateChange = useCallback(toDate => {
     const newMax = startOfDay(toDate).valueOf();
     const newMin = (newMax <= from) ? newMax - ONE_DAY : from.valueOf();
 
     axis.setExtremes(newMin, newMax);
-  };
-
-  const handleAfterSetExtremes = ({ min, max }) => {
-    setFrom(new Date(min));
-    setTo(new Date(max));
-  };
+  },[from, axis]);
 
   useEffect(() => {
     if (!axis) return;
+    
+    const handleAfterSetExtremes = ({ min, max }) => {
+      setFrom(new Date(min));
+      setTo(new Date(max));
+    };
 
     Highcharts.addEvent(axis.object, 'afterSetExtremes', handleAfterSetExtremes);
     const { min, max } = axis.getExtremes();
@@ -66,4 +66,5 @@ const DateRangePickers = () => {
   )
 };
 
-export default DateRangePickers;`;
+export default DateRangePickers;
+`;
