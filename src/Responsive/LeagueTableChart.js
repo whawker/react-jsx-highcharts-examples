@@ -29,10 +29,12 @@ const pointFormatter = function () {
   return `<strong>Match Week ${this.x}</strong><br />${this.series.name}: ${getOrdinal(this.y)}`
 }
 
-const labelFormatter = function () {
-  if (this.value === 0) return '';
-  return this.value;
-}
+const labelFormatter = {
+  formatter: function() {
+    if (this.value === 0) return '';
+    return this.value;
+  }
+};
 
 class LeagueTableChart extends Component {
 
@@ -80,7 +82,7 @@ class LeagueTableChart extends Component {
           <XAxis.Title>Match Week</XAxis.Title>
         </XAxis>
 
-        <YAxis reversed min={0.5} max={20.5} tickInterval={1} endOnTick={false} labels={{ formatter: labelFormatter }} gridLineWidth={0}>
+        <YAxis reversed min={0.5} max={20.5} tickInterval={1} endOnTick={false} labels={labelFormatter} gridLineWidth={0}>
           <YAxis.Title>League Position</YAxis.Title>
 
           <LeagueTableSection pos={1} opacity="0.1">Champions</LeagueTableSection>
