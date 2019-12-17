@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useCallback } from 'react';
-import { useHighcharts, useAxis } from 'react-jsx-highcharts';
+import { useHighcharts, useAxis } from 'react-jsx-highstock';
 import DayPickerInput from 'react-day-picker/DayPickerInput';
 import dateParse from 'date-fns/parse';
 import dateFormat from 'date-fns/format';
