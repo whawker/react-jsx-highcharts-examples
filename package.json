@@ -18,7 +18,7 @@
     "react-jsx-highstock": "^4.0.0",
     "react-prism": "^4.3.2",
     "react-request": "^3.1.2",
-    "react-responsive": "^4.1.0",
+    "react-responsive": "^8.0.1",
     "react-router-dom": "^5.1.2",
     "react-scripts": "3.3.0",
     "whatwg-fetch": "^2.0.4"
