@@ -1,92 +1,70 @@
 export default `
-// Rendered in App.js with <DateRangePickers axisId="xAxis" />
+// Rendered in App.js with <DateRangePickers />
 
-class DateRangePickers extends Component {
+const DateRangePickers = () => {
+  const Highcharts = useHighcharts();
+  const axis = useAxis('xAxis');
 
-  constructor (props) {
-    super(props);
+  const [from, setFrom] = useState(null);
+  const [to, setTo] = useState(null);
 
-    this.handleFromDateChange = this.handleFromDateChange.bind(this);
-    this.handleToDateChange = this.handleToDateChange.bind(this);
-    this.handleAfterSetExtremes = this.handleAfterSetExtremes.bind(this);
+  const handleFromDateChange = useCallback(fromDate => {
+    const newMin = startOfDay(fromDate).valueOf();
+    const newMax = (newMin >= to) ? newMin + ONE_DAY : to.valueOf();
 
-    this.state = {
-      min: null,
-      max: null
+    axis.setExtremes(newMin, newMax);
+  },[to, axis]);
+
+  const handleToDateChange = useCallback(toDate => {
+    const newMax = startOfDay(toDate).valueOf();
+    const newMin = (newMax <= from) ? newMax - ONE_DAY : from.valueOf();
+
+    axis.setExtremes(newMin, newMax);
+  },[from, axis]);
+
+  useEffect(() => {
+    if (!axis) return;
+    
+    const handleAfterSetExtremes = ({ min, max }) => {
+      setFrom(new Date(min));
+      setTo(new Date(max));
     };
-  }
 
-  componentDidMount () {
-    const { getHighcharts, getAxis } = this.props;
-    const Highcharts = getHighcharts(); // Get Highcharts injected via withHighcharts
-    const axis = getAxis();
-
-    Highcharts.addEvent(axis.object, 'afterSetExtremes', this.handleAfterSetExtremes);
-
+    Highcharts.addEvent(axis.object, 'afterSetExtremes', handleAfterSetExtremes);
     const { min, max } = axis.getExtremes();
-    this.setState({
-      min,
-      max
-    });
-  }
+    setFrom(new Date(min));
+    setTo(new Date(max));
 
-  componentWillUnmount () {
-    const { getHighcharts, getAxis } = this.props;
-    const Highcharts = getHighcharts(); // Get Highcharts injected via withHighcharts
-    const axis = getAxis();
-    if (axis.object) {
-      Highcharts.removeEvent(axis.object, 'afterSetExtremes', this.handleAfterSetExtremes);
+    return () => {
+      Highcharts.removeEvent(axis.object, 'afterSetExtremes', handleAfterSetExtremes);
     }
+  }, [axis]);
+
+  if (from === null || to === null) {
+    return null;
   }
 
-  handleFromDateChange (fromDate) {
-    const axis = this.props.getAxis();
-    let { max } = axis.getExtremes();
-    let selectedTime = fromDate.startOf('day').valueOf();
+  return (
+    <div className="date-range-pickers">
+      <span className="date-range-pickers__from-label">From: </span>
+      <DayPickerInput
+        value={from}
+        format={DAY_FORMAT}
+        formatDate={formatDate}
+        parseDate={parseDate}
+        dayPickerProps={{ month: from }}
+        onDayChange={handleFromDateChange} />
+      <span className="date-range-pickers__to-label">To: </span>
+      <DayPickerInput
+        value={to}
+        format={DAY_FORMAT}
+        formatDate={formatDate}
+        parseDate={parseDate}
+        dayPickerProps={{ month: to }}
+        onDayChange={handleToDateChange} />
+    </div>
+  )
+};
 
-    let newMax = (selectedTime >= max) ? selectedTime + 86400000 : max;
-    axis.setExtremes(selectedTime, newMax);
-  }
-
-  handleToDateChange (toDate) {
-    const axis = this.props.getAxis();
-    let { min } = axis.getExtremes();
-    let selectedTime = toDate.startOf('day').valueOf();
-
-    let newMin = (selectedTime <= min) ? selectedTime - 86400000 : min;
-    axis.setExtremes(newMin, selectedTime);
-  }
-
-  handleAfterSetExtremes (e) {
-    const { min, max } = e;
-    this.setState({
-      min,
-      max
-    });
-  }
-
-  render () {
-    const { min, max } = this.state;
-
-    const fromDate = moment(min).format(DAY_FORMAT);
-    const toDate = moment(max).format(DAY_FORMAT);
-
-    return (
-      <div className="date-range-pickers">
-        <span className="date-range-pickers__from-label">From: </span>
-        <DayPickerInput
-          value={fromDate}
-          onDayChange={this.handleFromDateChange}
-          format={DAY_FORMAT} />
-        <span className="date-range-pickers__to-label">To: </span>
-        <DayPickerInput
-          value={toDate}
-          onDayChange={this.handleToDateChange}
-          format={DAY_FORMAT} />
-      </div>
-    );
-  }
-}
-
-// The important bit, using the provideAxis HOC to inject Highcharts axis methods
-export default provideAxis(DateRangePickers);`;
+export default DateRangePickers;
+`;

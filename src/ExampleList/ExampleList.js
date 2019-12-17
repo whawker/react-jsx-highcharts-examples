@@ -65,13 +65,6 @@ const ExampleList = () => (
         <p></p>
       </div>
       <div className="col">
-        <Link to="ImmutableJS">
-          <img src="https://user-images.githubusercontent.com/2003804/28994982-77bc7998-79d4-11e7-903f-cc61b4f89c4a.png" alt="ImmutableJS" />
-          <h4>Immutable.js Data Structures</h4>
-        </Link>
-        <p>(Requires <a href="https://facebook.github.io/immutable-js/" target="_blank" rel="noopener noreferrer"><code>Immutable</code></a>)</p>
-      </div>
-      <div className="col">
         <Link to="SynchronisedCharts">
           <img src="https://user-images.githubusercontent.com/2003804/28792322-154e48e6-7627-11e7-9608-ef813b12b73a.gif" alt="SynchronisedCharts" />
           <h4>Synchronised charts</h4>
