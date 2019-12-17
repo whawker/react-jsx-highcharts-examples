@@ -22,6 +22,15 @@ const plotOptions = {
   }
 };
 
+const dataLabels = {
+  format: '<div style="text-align:center"><span style="font-size:25px;color:black">{y}</span><br/><span style="font-size:12px;color:silver">km/h</span></div>',
+  y: -50
+};
+
+const tooltip = {
+  valueSuffix: ' km/h'
+};
+
 class Gauge extends Component {
 
   state = {
@@ -86,13 +95,8 @@ class Gauge extends Component {
             <SolidGaugeSeries
               name='Speed'
               data={[ this.state.kmph ]}
-              dataLabels={{
-                format: '<div style="text-align:center"><span style="font-size:25px;color:black">{y}</span><br/><span style="font-size:12px;color:silver">km/h</span></div>',
-                y: -50
-              }}
-              tooltip={{
-                valueSuffix: ' km/h'
-              }}
+              dataLabels={dataLabels}
+              tooltip={tooltip}
             />
           </YAxis>
 
