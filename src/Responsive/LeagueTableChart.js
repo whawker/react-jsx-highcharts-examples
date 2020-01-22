@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Highcharts from 'highcharts';
 import {
-  HighchartsChart, Chart, withHighcharts, XAxis, YAxis, Title, Subtitle, Legend, Tooltip
+  HighchartsChart, Chart, HighchartsProvider, XAxis, YAxis, Title, Subtitle, Legend, Tooltip
 } from 'react-jsx-highcharts';
 import MediaQuery from 'react-responsive';
 import range from 'lodash/range';
@@ -65,36 +65,38 @@ class LeagueTableChart extends Component {
 
   render() {
     return (
-      <HighchartsChart plotOptions={plotOptions} className="league-table-chart">
-        <Chart height={600} backgroundColor="transparent" />
+      <HighchartsProvider Highcharts={Highcharts}>
+        <HighchartsChart plotOptions={plotOptions} className="league-table-chart">
+          <Chart height={600} backgroundColor="transparent" />
 
-        <Title>Premier League 17-18: League Positions by Match Week</Title>
+          <Title>Premier League 17-18: League Positions by Match Week</Title>
 
-        <Subtitle>Using react-responsive (Hides Legend)</Subtitle>
+          <Subtitle>Using react-responsive (Hides Legend)</Subtitle>
 
-        <MediaQuery minWidth={767}>
-          <Legend layout="vertical" align="right" verticalAlign="middle" />
-        </MediaQuery>
+          <MediaQuery minWidth={767}>
+            <Legend layout="vertical" align="right" verticalAlign="middle" />
+          </MediaQuery>
 
-        <Tooltip formatter={pointFormatter} />
+          <Tooltip formatter={pointFormatter} />
 
-        <XAxis tickInterval={1} categories={matchWeeks}>
-          <XAxis.Title>Match Week</XAxis.Title>
-        </XAxis>
+          <XAxis tickInterval={1} categories={matchWeeks}>
+            <XAxis.Title>Match Week</XAxis.Title>
+          </XAxis>
 
-        <YAxis reversed min={0.5} max={20.5} tickInterval={1} endOnTick={false} labels={labelFormatter} gridLineWidth={0}>
-          <YAxis.Title>League Position</YAxis.Title>
+          <YAxis reversed min={0.5} max={20.5} tickInterval={1} endOnTick={false} labels={labelFormatter} gridLineWidth={0}>
+            <YAxis.Title>League Position</YAxis.Title>
 
-          <LeagueTableSection pos={1} opacity="0.1">Champions</LeagueTableSection>
-          <LeagueTableSection pos={2} size={3} opacity="0.05">Champions League</LeagueTableSection>
-          <LeagueTableSection pos={5} opacity="0.025">Europa League</LeagueTableSection>
-          <LeagueTableSection pos={18} size={3} opacity="0.05">Relegated</LeagueTableSection>
+            <LeagueTableSection pos={1} opacity="0.1">Champions</LeagueTableSection>
+            <LeagueTableSection pos={2} size={3} opacity="0.05">Champions League</LeagueTableSection>
+            <LeagueTableSection pos={5} opacity="0.025">Europa League</LeagueTableSection>
+            <LeagueTableSection pos={18} size={3} opacity="0.05">Relegated</LeagueTableSection>
 
-          {map(teamData, this.renderTeamSeries)}
-        </YAxis>
-      </HighchartsChart>
+            {map(teamData, this.renderTeamSeries)}
+          </YAxis>
+        </HighchartsChart>
+      </HighchartsProvider>
     );
   }
 }
 
-export default withHighcharts(LeagueTableChart, Highcharts);
+export default LeagueTableChart;
