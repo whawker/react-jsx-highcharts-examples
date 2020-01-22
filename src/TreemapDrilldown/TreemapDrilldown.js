@@ -3,7 +3,7 @@ import Highcharts from 'highcharts';
 import addHeatmapModule from 'highcharts/modules/heatmap';
 import addTreemapModule from 'highcharts/modules/treemap';
 import {
-  HighchartsChart, withHighcharts, Title, Subtitle, XAxis, YAxis, TreemapSeries, Tooltip
+  HighchartsChart, HighchartsProvider, Title, Subtitle, XAxis, YAxis, TreemapSeries, Tooltip
 } from 'react-jsx-highcharts';
 import ExampleCode from '../utils/ExampleCode';
 import code from './exampleCode';
@@ -93,31 +93,32 @@ class TreemapDrilldown extends Component {
 
     return (
       <div className="app">
-        <HighchartsChart>
-          <Title>Global Mortality Rate 2012, per 100,000 population</Title>
+        <HighchartsProvider Highcharts={Highcharts}>
+          <HighchartsChart>
+            <Title>Global Mortality Rate 2012, per 100,000 population</Title>
 
-          <Subtitle>Click points to drill down. Source: WHO.</Subtitle>
+            <Subtitle>Click points to drill down. Source: WHO.</Subtitle>
 
-          <XAxis />
+            <XAxis />
 
-          <YAxis>
-            <TreemapSeries
-              data={treeData}
-              allowDrillToNode
-              layoutAlgorithm="squarified"
-              animationLimit={1000}
-              dataLabels={{ enabled: false }}
-              levelIsConstant={false}
-              levels={levels} />
-          </YAxis>
+            <YAxis>
+              <TreemapSeries
+                data={treeData}
+                allowDrillToNode
+                layoutAlgorithm="squarified"
+                animationLimit={1000}
+                dataLabels={{ enabled: false }}
+                levelIsConstant={false}
+                levels={levels} />
+            </YAxis>
 
-          <Tooltip formatter={tooltipFormatter} />
-        </HighchartsChart>
-
+            <Tooltip formatter={tooltipFormatter} />
+          </HighchartsChart>
+        </HighchartsProvider>
         <ExampleCode name="TreemapDrilldown">{code}</ExampleCode>
       </div>
     );
   }
 }
 
-export default withHighcharts(TreemapDrilldown, Highcharts);
+export default TreemapDrilldown;

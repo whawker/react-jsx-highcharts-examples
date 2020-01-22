@@ -29,19 +29,21 @@ const App = () => {
 
   return (
     <div className="app">
-      <HighchartsChart>
-        <Title>Highcharts Sankey Diagram</Title>
+      <HighchartsProvider Highcharts={Highcharts}>
+        <HighchartsChart>
+          <Title>Highcharts Sankey Diagram</Title>
 
-        <XAxis type="category" />
+          <XAxis type="category" />
 
-        <YAxis>
-          <SankeySeries name="Sankey demo series" data={formattedData} keys={['from', 'to', 'weight']} />
-        </YAxis>
+          <YAxis>
+            <SankeySeries name="Sankey demo series" data={formattedData} keys={['from', 'to', 'weight']} />
+          </YAxis>
 
-        <Tooltip />
-      </HighchartsChart>
+          <Tooltip />
+        </HighchartsChart>
+      </HighchartsProvider>
     </div>
   );
 }
 
-export default withHighcharts(App, Highcharts);`;
+export default App;`;

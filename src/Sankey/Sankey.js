@@ -2,7 +2,7 @@ import React from 'react';
 import Highcharts from 'highcharts';
 import addSankeyModule from 'highcharts/modules/sankey';
 import {
-  HighchartsChart, withHighcharts, XAxis, YAxis, Title, SankeySeries, Tooltip
+  HighchartsChart, HighchartsProvider, XAxis, YAxis, Title, SankeySeries, Tooltip
 } from 'react-jsx-highcharts';
 import ExampleCode from '../utils/ExampleCode';
 import code from './exampleCode';
@@ -34,21 +34,22 @@ const Sankey = () => {
 
   return (
     <div className="app">
-      <HighchartsChart>
-        <Title>Highcharts Sankey Diagram</Title>
+      <HighchartsProvider Highcharts={Highcharts}>
+        <HighchartsChart>
+          <Title>Highcharts Sankey Diagram</Title>
 
-        <XAxis type="category" />
+          <XAxis type="category" />
 
-        <YAxis>
-          <SankeySeries name="Sankey demo series" data={formattedData} keys={['from', 'to', 'weight']} />
-        </YAxis>
+          <YAxis>
+            <SankeySeries name="Sankey demo series" data={formattedData} keys={['from', 'to', 'weight']} />
+          </YAxis>
 
-        <Tooltip />
-      </HighchartsChart>
-
+          <Tooltip />
+        </HighchartsChart>
+      </HighchartsProvider>
       <ExampleCode name="Sankey">{code}</ExampleCode>
     </div>
   );
 }
 
-export default withHighcharts(Sankey, Highcharts);
+export default Sankey;

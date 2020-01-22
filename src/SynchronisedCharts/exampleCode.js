@@ -50,28 +50,30 @@ class SynchronisedCharts extends Component {
     const colour = Highcharts.getOptions().colors[index];
 
     return (
-      <HighchartsChart key={dataset.name}>
-        <Title align="left" margin={30} x={30}>{dataset.name}</Title>
-        <XAxis crosshair labels={{format: '{value} km'}} />
-        <YAxis>
-          <Series
-            name={dataset.name}
-            type={dataset.type}
-            data={data}
-            color={colour}
-            tooltip={{ valueSuffix: \` \${dataset.unit}\` }} />
-        </YAxis>
+      <HighchartsProvider Highcharts={Highcharts}>
+        <HighchartsChart key={dataset.name}>
+          <Title align="left" margin={30} x={30}>{dataset.name}</Title>
+          <XAxis crosshair labels={{format: '{value} km'}} />
+          <YAxis>
+            <Series
+              name={dataset.name}
+              type={dataset.type}
+              data={data}
+              color={colour}
+              tooltip={{ valueSuffix: \` \${dataset.unit}\` }} />
+          </YAxis>
 
-        <Tooltip
-          positioner={tooltipPositioner}
-          borderWidth={0}
-          backgroundColor="none"
-          pointFormat="{point.y}"
-          headerFormat=""
-          shadow={false}
-          style={{ fontSize: '18px' }}
-          valueDecimals={dataset.valueDecimals} />
-      </HighchartsChart>
+          <Tooltip
+            positioner={tooltipPositioner}
+            borderWidth={0}
+            backgroundColor="none"
+            pointFormat="{point.y}"
+            headerFormat=""
+            shadow={false}
+            style={{ fontSize: '18px' }}
+            valueDecimals={dataset.valueDecimals} />
+        </HighchartsChart>
+      </HighchartsProvider>
     );
   }
 

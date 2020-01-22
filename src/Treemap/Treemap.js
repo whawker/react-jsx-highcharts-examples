@@ -3,7 +3,7 @@ import Highcharts from 'highcharts';
 import addHeatmapModule from 'highcharts/modules/heatmap';
 import addTreemapModule from 'highcharts/modules/treemap';
 import {
-  HighchartsChart, withHighcharts, Title, XAxis, YAxis, TreemapSeries, Legend
+  HighchartsChart, HighchartsProvider, Title, XAxis, YAxis, TreemapSeries, Legend
 } from 'react-jsx-highcharts';
 import ExampleCode from '../utils/ExampleCode';
 import code from './exampleCode';
@@ -40,22 +40,23 @@ class Treemap extends Component {
 
     return (
       <div className="app">
-        <HighchartsChart colorAxis={colorAxis}>
-          <Title>Highcharts Treemap</Title>
+        <HighchartsProvider Highcharts={Highcharts}>
+          <HighchartsChart colorAxis={colorAxis}>
+            <Title>Highcharts Treemap</Title>
 
-          <Legend />
+            <Legend />
 
-          <XAxis />
+            <XAxis />
 
-          <YAxis>
-            <TreemapSeries name="Tree" data={treemapData} layoutAlgorithm="squarified" />
-          </YAxis>
-        </HighchartsChart>
-
+            <YAxis>
+              <TreemapSeries name="Tree" data={treemapData} layoutAlgorithm="squarified" />
+            </YAxis>
+          </HighchartsChart>
+        </HighchartsProvider>
         <ExampleCode name="Treemap">{code}</ExampleCode>
       </div>
     );
   }
 }
 
-export default withHighcharts(Treemap, Highcharts);
+export default Treemap;

@@ -38,30 +38,31 @@ render() {
   ];
 
   return (
-    <HighchartsChart plotOptions={plotOptions}>
-      <Chart type="spline" />
+    <HighchartsProvider Highcharts={Highcharts}>
+      <HighchartsChart plotOptions={plotOptions}>
+        <Chart type="spline" />
 
-      <Title>Wind speed during two days</Title>
+        <Title>Wind speed during two days</Title>
 
-      <Subtitle>May 31 and and June 1, 2015 at two locations in Vik i Sogn, Norway</Subtitle>
+        <Subtitle>May 31 and and June 1, 2015 at two locations in Vik i Sogn, Norway</Subtitle>
 
-      <Legend />
+        <Legend />
 
-      <Tooltip valueSuffix=" m/s" />
+        <Tooltip valueSuffix=" m/s" />
 
-      <XAxis type="datetime">
-        <XAxis.Title>Time</XAxis.Title>
-      </XAxis>
+        <XAxis type="datetime">
+          <XAxis.Title>Time</XAxis.Title>
+        </XAxis>
 
-      <YAxis minorGridLineWidth={0} gridLineWidth={0} alternateGridColor={null}>
-        <YAxis.Title>Wind speed (m/s)</YAxis.Title>
-        <SplineSeries name="Hestavollane" data={[0.2, 0.8, 0.8, 0.8, 1, 1.3, // etc.]} />
-        <SplineSeries name="Vix" data={[0, 0, 0.6, 0.9, 0.8, 0.2, 0, 0, 0, 0.1, 0.6, // etc.]} />
-        {bands.map(this.renderPlotBand)}
-      </YAxis>
-    </HighchartsChart>
+        <YAxis minorGridLineWidth={0} gridLineWidth={0} alternateGridColor={null}>
+          <YAxis.Title>Wind speed (m/s)</YAxis.Title>
+          <SplineSeries name="Hestavollane" data={[0.2, 0.8, 0.8, 0.8, 1, 1.3, // etc.]} />
+          <SplineSeries name="Vix" data={[0, 0, 0.6, 0.9, 0.8, 0.2, 0, 0, 0, 0.1, 0.6, // etc.]} />
+          {bands.map(this.renderPlotBand)}
+        </YAxis>
+      </HighchartsChart>
+    </HighchartsProvider>
   );
 }
 
-// Remember to inject Highcharts to exported component
-export default withHighcharts(MyComponent, Highcharts);`;
+export default MyComponent;`;

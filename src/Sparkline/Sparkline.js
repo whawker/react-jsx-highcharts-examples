@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import {
-  HighchartsSparkline, withHighcharts, AreaSeries, Tooltip
+  HighchartsSparkline, HighchartsProvider, AreaSeries, Tooltip
 } from 'react-jsx-highcharts';
 import Highcharts from 'highcharts';
 import mapValues from 'lodash/mapValues';
@@ -110,30 +110,31 @@ class Sparkline extends Component {
 
     return (
       <div className="app sparkline-example">
-        <h1 className="text-center">Sparkline Demo</h1>
-        <p className="text-center">Download stats of selected NPM packages</p>
+        <HighchartsProvider Highcharts={Highcharts}>
+          <h1 className="text-center">Sparkline Demo</h1>
+          <p className="text-center">Download stats of selected NPM packages</p>
 
-        <table className="table table-striped">
-          <thead>
-            <tr>
-              <th>NPM Package</th>
-              <th>7 Day Total</th>
-              <th>7 Day Sparkline</th>
-              <th>30 Day Total</th>
-              <th>
-                30 Day Sparkline <small>(w/ tooltip)</small>
-              </th>
-            </tr>
-          </thead>
-          <tbody>
-            {npmPackages.map(this.renderTableRow)}
-          </tbody>
-        </table>
-
+          <table className="table table-striped">
+            <thead>
+              <tr>
+                <th>NPM Package</th>
+                <th>7 Day Total</th>
+                <th>7 Day Sparkline</th>
+                <th>30 Day Total</th>
+                <th>
+                  30 Day Sparkline <small>(w/ tooltip)</small>
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              {npmPackages.map(this.renderTableRow)}
+            </tbody>
+          </table>
+        </HighchartsProvider>
         <ExampleCode name="Sparkline">{code}</ExampleCode>
       </div>
     );
   }
 }
 
-export default withHighcharts(Sparkline, Highcharts);
+export default Sparkline;

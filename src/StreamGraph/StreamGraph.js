@@ -2,7 +2,7 @@ import React from 'react';
 import Highcharts from 'highcharts';
 import addStreamGraphModule from 'highcharts/modules/streamgraph';
 import {
-  HighchartsChart, withHighcharts, Chart, XAxis, YAxis, Title, Subtitle, StreamGraphSeries, Tooltip
+  HighchartsChart, HighchartsProvider, Chart, XAxis, YAxis, Title, Subtitle, StreamGraphSeries, Tooltip
 } from 'react-jsx-highcharts';
 import data from './data';
 import ExampleCode from '../utils/ExampleCode';
@@ -55,27 +55,28 @@ const StreamGraph = () => {
 
   return (
     <div className="app">
-      <HighchartsChart plotOptions={plotOptions}>
-        <Chart marginBottom={30} zoomType="x" />
+      <HighchartsProvider Highcharts={Highcharts}>
+        <HighchartsChart plotOptions={plotOptions}>
+          <Chart marginBottom={30} zoomType="x" />
 
-        <Title floating align="left">Winter Olympic Medal Wins</Title>
+          <Title floating align="left">Winter Olympic Medal Wins</Title>
 
-        <Subtitle floating align="left" y={30}>Source: sports-reference.com</Subtitle>
+          <Subtitle floating align="left" y={30}>Source: sports-reference.com</Subtitle>
 
-        <XAxis type="category" categories={hosts} labels={{ align: 'left', reserveSpace: false, rotation: 270 }} lineWidth={0} tickWidth={0} margin={20} crosshair />
+          <XAxis type="category" categories={hosts} labels={{ align: 'left', reserveSpace: false, rotation: 270 }} lineWidth={0} tickWidth={0} margin={20} crosshair />
 
-        <YAxis visible={false} startOnTick={false} endOnTick={false}>
-          {Object.keys(data).map(country => (
-            <StreamGraphSeries key={country} name={country} data={data[country].data} color={data[country].color} />
-          ))}
-        </YAxis>
+          <YAxis visible={false} startOnTick={false} endOnTick={false}>
+            {Object.keys(data).map(country => (
+              <StreamGraphSeries key={country} name={country} data={data[country].data} color={data[country].color} />
+            ))}
+          </YAxis>
 
-        <Tooltip />
-      </HighchartsChart>
-
+          <Tooltip />
+        </HighchartsChart>
+      </HighchartsProvider>
       <ExampleCode name="StreamGraph">{code}</ExampleCode>
     </div>
   );
 }
 
-export default withHighcharts(StreamGraph, Highcharts);
+export default StreamGraph;
