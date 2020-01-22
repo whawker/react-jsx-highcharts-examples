@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import Highcharts from 'highcharts';
 import addHighchartsMore from 'highcharts/highcharts-more';
 import {
-  HighchartsChart, Chart, withHighcharts, XAxis, YAxis, Title, Legend, ColumnSeries, SplineSeries, PieSeries
+  HighchartsChart, Chart, HighchartsProvider, XAxis, YAxis, Title, Legend, ColumnSeries, SplineSeries, PieSeries
 } from 'react-jsx-highcharts';
 import ExampleCode from '../utils/ExampleCode';
 import code from './exampleCode';
@@ -10,22 +10,22 @@ import code from './exampleCode';
 // Apply Highcharts More module
 addHighchartsMore(Highcharts);
 
-class Combo extends Component {
+const Combo = () => {
 
-  render() {
-    const pieData = [{
-      name: 'Jane',
-      y: 13
-    }, {
-      name: 'John',
-      y: 23
-    }, {
-      name: 'Joe',
-      y: 19
-    }];
+  const pieData = [{
+    name: 'Jane',
+    y: 13
+  }, {
+    name: 'John',
+    y: 23
+  }, {
+    name: 'Joe',
+    y: 19
+  }];
 
-    return (
-      <div className="app">
+  return (
+    <div className="app">
+      <HighchartsProvider Highcharts={Highcharts}>
         <HighchartsChart>
           <Chart />
 
@@ -43,11 +43,10 @@ class Combo extends Component {
             <PieSeries name="Total consumption" data={pieData} center={[100, 80]} size={100} showInLegend={false} />
           </YAxis>
         </HighchartsChart>
-
-        <ExampleCode name="Combo">{code}</ExampleCode>
-      </div>
-    );
-  }
+      </HighchartsProvider>
+      <ExampleCode name="Combo">{code}</ExampleCode>
+    </div>
+  );
 }
 
-export default withHighcharts(Combo, Highcharts);
+export default Combo;

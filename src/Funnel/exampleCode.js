@@ -29,14 +29,16 @@ const funnelData = [
 
 const Funnel = () => (
   <div className="app">
-    <HighchartsChart plotOptions={plotOptions}>
-      <Title>Sales funnel</Title>
+    <HighchartsProvider Highcharts={Highcharts}>
+      <HighchartsChart plotOptions={plotOptions}>
+        <Title>Sales funnel</Title>
 
-      <FunnelSeries name="Unique users" data={funnelData} />
-    </HighchartsChart>
+        <FunnelSeries name="Unique users" data={funnelData} />
+      </HighchartsChart>
 
-    <ExampleCode name="Funnel">{code}</ExampleCode>
+      <ExampleCode name="Funnel">{code}</ExampleCode>
+    </HighchartsProvider>
   </div>
 );
 
-export default withHighcharts(Funnel, Highcharts);`;
+export default Funnel`;

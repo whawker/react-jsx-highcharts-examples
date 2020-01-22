@@ -40,24 +40,24 @@ renderSeries = ({ name, data }) => {
 render() {
   return (
     <div className="app">
+      <HighchartsProvider Highcharts={Highcharts}>
+        <HighchartsChart>
+          <Title>Dynamically add/remove series</Title>
 
-      <HighchartsChart>
-        <Title>Dynamically add/remove series</Title>
+          <Legend align="left">
+            <Legend.Title>Legend</Legend.Title>
+          </Legend>
 
-        <Legend align="left">
-          <Legend.Title>Legend</Legend.Title>
-        </Legend>
+          <XAxis type="datetime">
+            <XAxis.Title>Time</XAxis.Title>
+          </XAxis>
 
-        <XAxis type="datetime">
-          <XAxis.Title>Time</XAxis.Title>
-        </XAxis>
-
-        <YAxis>
-          <YAxis.Title>Price</YAxis.Title>
-          {this.state.series.map(this.renderSeries)}
-        </YAxis>
-      </HighchartsChart>
-
+          <YAxis>
+            <YAxis.Title>Price</YAxis.Title>
+            {this.state.series.map(this.renderSeries)}
+          </YAxis>
+        </HighchartsChart>
+      </HighchartsProvider>
       <div className="btn-toolbar" role="toolbar">
         <button className="btn btn-primary" onClick={this.handleAddSeries}>Add line series</button>
         <button className="btn btn-danger" onClick={this.handleRemoveSeries}>Remove line series</button>

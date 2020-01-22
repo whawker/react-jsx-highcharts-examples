@@ -81,7 +81,7 @@ const ExampleList = () => (
       <div className="col">
         <Link to="Loading">
           <img src="https://user-images.githubusercontent.com/2003804/33528826-63919e96-d85f-11e7-9eab-06e903ba1aa6.png" alt="Loading" />
-          <h4>Aysnc loading message</h4>
+          <h4>Async loading message</h4>
         </Link>
         <p></p>
       </div>

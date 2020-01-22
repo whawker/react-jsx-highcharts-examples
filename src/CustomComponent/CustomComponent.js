@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Highcharts from 'highcharts/highstock';
 import {
-  HighchartsStockChart, Chart, withHighcharts, XAxis, YAxis, Title, Subtitle, Legend, AreaSplineSeries, Navigator
+  HighchartsStockChart, Chart, HighchartsProvider, XAxis, YAxis, Title, Subtitle, Legend, AreaSplineSeries, Navigator
 } from 'react-jsx-highstock';
 import ExampleCode from '../utils/ExampleCode';
 import code from './exampleCode';
@@ -25,37 +25,38 @@ class App extends Component {
 
     return (
       <div className="app">
-        <HighchartsStockChart className="custom-component-chart">
-          <Chart zoomType="x" />
+        <HighchartsProvider Highcharts={Highcharts}>
+          <HighchartsStockChart className="custom-component-chart">
+            <Chart zoomType="x" />
 
-          <Title>Custom Components</Title>
+            <Title>Custom Components</Title>
 
-          <Subtitle>react-day-picker Date Pickers</Subtitle>
+            <Subtitle>react-day-picker Date Pickers</Subtitle>
 
-          <Legend>
-            <Legend.Title>Key</Legend.Title>
-          </Legend>
+            <Legend>
+              <Legend.Title>Key</Legend.Title>
+            </Legend>
 
-          <XAxis>
-            <XAxis.Title>Time</XAxis.Title>
-          </XAxis>
+            <XAxis>
+              <XAxis.Title>Time</XAxis.Title>
+            </XAxis>
 
-          <YAxis>
-            <YAxis.Title>Price</YAxis.Title>
-            <AreaSplineSeries id="profit" name="Profit" data={data1} />
-          </YAxis>
+            <YAxis>
+              <YAxis.Title>Price</YAxis.Title>
+              <AreaSplineSeries id="profit" name="Profit" data={data1} />
+            </YAxis>
 
-          <DateRangePickers />
+            <DateRangePickers />
 
-          <Navigator>
-            <Navigator.Series seriesId="profit" />
-          </Navigator>
-        </HighchartsStockChart>
-
+            <Navigator>
+              <Navigator.Series seriesId="profit" />
+            </Navigator>
+          </HighchartsStockChart>
+        </HighchartsProvider>
         <ExampleCode name="CustomComponent">{code}</ExampleCode>
       </div>
     );
   }
 }
 
-export default withHighcharts(App, Highcharts);
+export default App;

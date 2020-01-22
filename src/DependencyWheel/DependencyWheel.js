@@ -3,7 +3,7 @@ import Highcharts from 'highcharts';
 import addSankeyModule from 'highcharts/modules/sankey';
 import addDependencyWheelModule from 'highcharts/modules/dependency-wheel';
 import {
-  HighchartsChart, withHighcharts, XAxis, YAxis, Title, DependencyWheelSeries, Tooltip
+  HighchartsChart, HighchartsProvider, XAxis, YAxis, Title, DependencyWheelSeries, Tooltip
 } from 'react-jsx-highcharts';
 import ExampleCode from '../utils/ExampleCode';
 import code from './exampleCode';
@@ -36,21 +36,22 @@ const DependencyWheel = () => {
 
   return (
     <div className="app">
-      <HighchartsChart>
-        <Title>Highcharts Dependency Wheel Diagram</Title>
+      <HighchartsProvider Highcharts={Highcharts}>
+        <HighchartsChart>
+          <Title>Highcharts Dependency Wheel Diagram</Title>
 
-        <XAxis type="category" />
+          <XAxis type="category" />
 
-        <YAxis>
-          <DependencyWheelSeries name="Dependency Wheel demo series" data={formattedData} keys={['from', 'to', 'weight']} />
-        </YAxis>
+          <YAxis>
+            <DependencyWheelSeries name="Dependency Wheel demo series" data={formattedData} keys={['from', 'to', 'weight']} />
+          </YAxis>
 
-        <Tooltip />
-      </HighchartsChart>
-
+          <Tooltip />
+        </HighchartsChart>
+      </HighchartsProvider>
       <ExampleCode name="DependencyWheelSeries">{code}</ExampleCode>
     </div>
   );
 }
 
-export default withHighcharts(DependencyWheel, Highcharts);
+export default DependencyWheel;

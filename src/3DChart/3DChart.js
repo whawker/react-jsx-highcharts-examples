@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import Highcharts from 'highcharts';
 import addHighcharts3DModule from 'highcharts/highcharts-3d';
 import {
-  Highcharts3dChart, Chart, withHighcharts, XAxis, YAxis, ZAxis, Title, Subtitle, ScatterSeries
+  Highcharts3dChart, Chart, HighchartsProvider, XAxis, YAxis, ZAxis, Title, Subtitle, ScatterSeries
 } from 'react-jsx-highcharts';
 import zones from './zones';
 import ExampleCode from '../utils/ExampleCode';
@@ -66,22 +66,23 @@ class ThreeDChart extends Component {
 
     return (
       <div className="app">
-        <Highcharts3dChart alpha={30} beta={beta} depth={300} viewDistance={0} plotOptions={plotOptions}>
-          <Chart />
+        <HighchartsProvider Highcharts={Highcharts}>
+          <Highcharts3dChart alpha={30} beta={beta} depth={300} viewDistance={0} plotOptions={plotOptions}>
+            <Chart />
 
-          <Title>3D Scatter Chart</Title>
+            <Title>3D Scatter Chart</Title>
 
-          <Subtitle>Plotting cos(x) * cos(y) (with zones for colours)</Subtitle>
+            <Subtitle>Plotting cos(x) * cos(y) (with zones for colours)</Subtitle>
 
-          <XAxis min={0} max={numRows} labels={{ enabled: false }} />
+            <XAxis min={0} max={numRows} labels={{ enabled: false }} />
 
-          <YAxis min={-2} max={2} labels={{ enabled: false }} />
+            <YAxis min={-2} max={2} labels={{ enabled: false }} />
 
-          <ZAxis min={0} max={numRows} labels={{ enabled: false }}>
-            <ScatterSeries data={data} zones={zones} />
-          </ZAxis>
-        </Highcharts3dChart>
-
+            <ZAxis min={0} max={numRows} labels={{ enabled: false }}>
+              <ScatterSeries data={data} zones={zones} />
+            </ZAxis>
+          </Highcharts3dChart>
+        </HighchartsProvider>
         <div>
           <label htmlFor="beta">Beta Angle</label>
           <input id="beta" type="range" min="0" max="45" step="1" value={beta} onChange={this.handleSliderChange} />
@@ -94,4 +95,4 @@ class ThreeDChart extends Component {
   }
 }
 
-export default withHighcharts(ThreeDChart, Highcharts);
+export default ThreeDChart;

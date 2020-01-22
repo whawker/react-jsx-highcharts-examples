@@ -31,19 +31,21 @@ const App = () => {
 
   return (
     <div className="app">
-      <HighchartsChart>
-        <Title>Highcharts Dependency Wheel Diagram</Title>
+      <HighchartsProvider Highcharts={Highcharts}>
+        <HighchartsChart>
+          <Title>Highcharts Dependency Wheel Diagram</Title>
 
-        <XAxis type="category" />
+          <XAxis type="category" />
 
-        <YAxis>
-          <DependencyWheelSeries name="Dependency Wheel demo series" data={formattedData} keys={['from', 'to', 'weight']} />
-        </YAxis>
+          <YAxis>
+            <DependencyWheelSeries name="Dependency Wheel demo series" data={formattedData} keys={['from', 'to', 'weight']} />
+          </YAxis>
 
-        <Tooltip />
-      </HighchartsChart>
+          <Tooltip />
+        </HighchartsChart>
+      </HighchartsProvider>
     </div>
   );
 }
 
-export default withHighcharts(App, Highcharts);`;
+export default App;`;

@@ -42,29 +42,31 @@ class LoadingExample extends Component {
 
     return (
       <div className="app">
-        <HighchartsChart>
-          <Title>Display "Fetching data..." Until Async Task Completes</Title>
+        <HighchartsProvider Highcharts={Highcharts}>
+          <HighchartsChart plotOptions={plotOptions}>
+            <Title>Display "Fetching data..." Until Async Task Completes</Title>
 
-          <Subtitle>NPM Download Stats of Selected Front End Frameworks. Source: api.npmjs.org</Subtitle>
+            <Subtitle>NPM Download Stats of Selected Front End Frameworks. Source: api.npmjs.org</Subtitle>
 
-          <Loading isLoading={!loaded}>Fetching data...</Loading>
+            <Loading isLoading={!loaded}>Fetching data...</Loading>
 
-          <Legend layout="vertical" align="right" verticalAlign="middle" />
+            <Legend layout="vertical" align="right" verticalAlign="middle" />
 
-          <Tooltip shared />
+            <Tooltip shared />
 
-          <XAxis type="datetime" min={now - YEAR_MS} max={now}>
-            <XAxis.Title>Date</XAxis.Title>
-          </XAxis>
+            <XAxis type="datetime" min={now - YEAR_MS} max={now}>
+              <XAxis.Title>Date</XAxis.Title>
+            </XAxis>
 
-          <YAxis min={0} max={500000}>
-            <YAxis.Title>Number of downloads</YAxis.Title>
-            {npmPackages.map(this.renderSeries)}
-          </YAxis>
-        </HighchartsChart>
+            <YAxis min={0} max={500000}>
+              <YAxis.Title>Number of downloads</YAxis.Title>
+              {npmPackages.map(this.renderSeries)}
+            </YAxis>
+          </HighchartsChart>
+        </HighchartsProvider>
       </div>
     );
   }
 }
 
-export default withHighcharts(LoadingExample, Highcharts);`;
+export default LoadingExample;`;

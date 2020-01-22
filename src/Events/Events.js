@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Highcharts from 'highcharts';
 import {
-  HighchartsChart, Chart, withHighcharts, XAxis, YAxis, Title, Legend, ScatterSeries
+  HighchartsChart, Chart, HighchartsProvider, XAxis, YAxis, Title, Legend, ScatterSeries
 } from 'react-jsx-highcharts';
 import ExampleCode from '../utils/ExampleCode';
 import code from './exampleCode';
@@ -51,26 +51,27 @@ class Events extends Component {
 
     return (
       <div className="app">
+        <HighchartsProvider Highcharts={Highcharts}>
+          <HighchartsChart>
+            <Chart zoomType="xy" onClick={this.handleClick} />
 
-        <HighchartsChart>
-          <Chart zoomType="xy" onClick={this.handleClick} />
+            <Title>Click to add data</Title>
 
-          <Title>Click to add data</Title>
+            <Legend>
+              <Legend.Title>Legend</Legend.Title>
+            </Legend>
 
-          <Legend>
-            <Legend.Title>Legend</Legend.Title>
-          </Legend>
+            <XAxis>
+              <XAxis.Title>X Coord</XAxis.Title>
+            </XAxis>
 
-          <XAxis>
-            <XAxis.Title>X Coord</XAxis.Title>
-          </XAxis>
-
-          <YAxis>
-            <YAxis.Title>Y Coord</YAxis.Title>
-            <ScatterSeries name="My clicks" data={myClicks} />
-            <ScatterSeries name="Your clicks" data={userClicks} onHide={this.handleHide} onShow={this.handleShow} />
-          </YAxis>
-        </HighchartsChart>
+            <YAxis>
+              <YAxis.Title>Y Coord</YAxis.Title>
+              <ScatterSeries name="My clicks" data={myClicks} />
+              <ScatterSeries name="Your clicks" data={userClicks} onHide={this.handleHide} onShow={this.handleShow} />
+            </YAxis>
+          </HighchartsChart>
+        </HighchartsProvider>
         <p>Click count: <span>{clickCounter}</span></p>
 
         <ExampleCode name="Events">{code}</ExampleCode>
@@ -79,4 +80,4 @@ class Events extends Component {
   }
 }
 
-export default withHighcharts(Events, Highcharts);
+export default Events;

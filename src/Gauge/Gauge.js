@@ -3,7 +3,7 @@ import Highcharts from 'highcharts';
 import addHighchartsMore from 'highcharts/highcharts-more';
 import addSolidGaugeModule from 'highcharts/modules/solid-gauge';
 import {
-  HighchartsChart, withHighcharts, XAxis, YAxis, Pane, SolidGaugeSeries
+  HighchartsChart, HighchartsProvider, XAxis, YAxis, Pane, SolidGaugeSeries
 } from 'react-jsx-highcharts';
 import ExampleCode from '../utils/ExampleCode';
 import code from './exampleCode';
@@ -62,50 +62,51 @@ class Gauge extends Component {
   render() {
     return (
       <div className="app">
-        <HighchartsChart gauge plotOptions={plotOptions}>
-          <Pane
-            center={['50%', '85%']}
-            size='100%'
-            startAngle={-90}
-            endAngle={90}
-            background={{
-              backgroundColor: '#EEE',
-              innerRadius: '60%',
-              outerRadius: '100%',
-              shape: 'arc'
-            }} />
-          <XAxis />
-          <YAxis
-            stops={[
-              [0.1, '#55BF3B'],
-              [0.5,  '#DDDF0D'],
-              [0.9, '#DF5353']
-            ]}
-            lineWidth={0}
-            minorTickInterval={null}
-            tickPixelInterval={400}
-            tickWidth={0}
-            labels={{
-              y: 16,
-              style: { display: 'none' }
-            }}
-            min={0}
-            max={200}>
-            <YAxis.Title y={-110}>Speed</YAxis.Title>
-            <SolidGaugeSeries
-              name='Speed'
-              data={[ this.state.kmph ]}
-              dataLabels={dataLabels}
-              tooltip={tooltip}
-            />
-          </YAxis>
+        <HighchartsProvider Highcharts={Highcharts}>
+          <HighchartsChart gauge plotOptions={plotOptions}>
+            <Pane
+              center={['50%', '85%']}
+              size='100%'
+              startAngle={-90}
+              endAngle={90}
+              background={{
+                backgroundColor: '#EEE',
+                innerRadius: '60%',
+                outerRadius: '100%',
+                shape: 'arc'
+              }} />
+            <XAxis />
+            <YAxis
+              stops={[
+                [0.1, '#55BF3B'],
+                [0.5,  '#DDDF0D'],
+                [0.9, '#DF5353']
+              ]}
+              lineWidth={0}
+              minorTickInterval={null}
+              tickPixelInterval={400}
+              tickWidth={0}
+              labels={{
+                y: 16,
+                style: { display: 'none' }
+              }}
+              min={0}
+              max={200}>
+              <YAxis.Title y={-110}>Speed</YAxis.Title>
+              <SolidGaugeSeries
+                name='Speed'
+                data={[ this.state.kmph ]}
+                dataLabels={dataLabels}
+                tooltip={tooltip}
+              />
+            </YAxis>
 
-        </HighchartsChart>
-
+          </HighchartsChart>
+        </HighchartsProvider>
         <ExampleCode name="Gauge">{code}</ExampleCode>
       </div>
     );
   }
 }
 
-export default withHighcharts(Gauge, Highcharts);
+export default Gauge;

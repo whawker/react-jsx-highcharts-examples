@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Highcharts from 'highcharts';
 import {
-  HighchartsChart, Chart, withHighcharts, XAxis, YAxis, Title, Legend, LineSeries
+  HighchartsChart, Chart, HighchartsProvider, XAxis, YAxis, Title, Legend, LineSeries
 } from 'react-jsx-highcharts';
 import ExampleCode from '../utils/ExampleCode';
 import code from './exampleCode';
@@ -57,27 +57,27 @@ class LiveUpdate extends Component {
 
     return (
       <div className="app">
+        <HighchartsProvider Highcharts={Highcharts}>
+          <HighchartsChart>
+            <Chart />
 
-        <HighchartsChart>
-          <Chart />
+            <Title>Dynamically updating data</Title>
 
-          <Title>Dynamically updating data</Title>
+            <Legend>
+              <Legend.Title>Legend</Legend.Title>
+            </Legend>
 
-          <Legend>
-            <Legend.Title>Legend</Legend.Title>
-          </Legend>
+            <XAxis type="datetime">
+              <XAxis.Title>Time</XAxis.Title>
+            </XAxis>
 
-          <XAxis type="datetime">
-            <XAxis.Title>Time</XAxis.Title>
-          </XAxis>
-
-          <YAxis>
-            <YAxis.Title>Pressure (m)</YAxis.Title>
-            <LineSeries name="Sensor 1" data={data1} />
-            <LineSeries name="Sensor 2" data={data2} />
-          </YAxis>
-        </HighchartsChart>
-
+            <YAxis>
+              <YAxis.Title>Pressure (m)</YAxis.Title>
+              <LineSeries name="Sensor 1" data={data1} />
+              <LineSeries name="Sensor 2" data={data2} />
+            </YAxis>
+          </HighchartsChart>
+        </HighchartsProvider>
         <div>
           {!liveUpdate && (
             <button className="btn btn-success" onClick={this.handleStartLiveUpdate}>Live update</button>
@@ -93,4 +93,4 @@ class LiveUpdate extends Component {
   }
 }
 
-export default withHighcharts(LiveUpdate, Highcharts);
+export default LiveUpdate;

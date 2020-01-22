@@ -19,27 +19,26 @@ render () {
   const { data1, data2 } = this.state;
 
   return (
-    <HighchartsChart>
-      <Chart />
+    <HighchartsProvider Highcharts={Highcharts}>
+      <HighchartsChart>
+        <Chart />
 
-      <Title>Dynamically updating data</Title>
+        <Title>Dynamically updating data</Title>
 
-      <Legend>
-        <Legend.Title>Legend</Legend.Title>
-      </Legend>
+        <Legend>
+          <Legend.Title>Legend</Legend.Title>
+        </Legend>
 
-      <XAxis type="datetime">
-        <XAxis.Title>Time</XAxis.Title>
-      </XAxis>
+        <XAxis type="datetime">
+          <XAxis.Title>Time</XAxis.Title>
+        </XAxis>
 
-      <YAxis>
-        <YAxis.Title>Pressure (m)</YAxis.Title>
-        <LineSeries name="Sensor 1" data={data1} />
-        <LineSeries name="Sensor 2" data={data2} />
-      </YAxis>
-    </HighchartsChart>
+        <YAxis>
+          <YAxis.Title>Pressure (m)</YAxis.Title>
+          <LineSeries name="Sensor 1" data={data1} />
+          <LineSeries name="Sensor 2" data={data2} />
+        </YAxis>
+      </HighchartsChart>
+    </HighchartsProvider>
   );
-}
-
-// Remember to inject Highcharts to exported component
-export default withHighcharts(MyComponent, Highcharts);`;
+}`;
