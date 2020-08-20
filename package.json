@@ -4,9 +4,9 @@
   "private": true,
   "dependencies": {
     "date-fns": "^2.15.0",
-    "highcharts": "^8.1.2",
-    "lodash": "^4.17.19",
-    "prismjs": "^1.20.0",
+    "highcharts": "^8.2.0",
+    "lodash": "^4.17.20",
+    "prismjs": "^1.21.0",
     "proj4": "^2.6.2",
     "prop-types": "^15.6.1",
     "re-resizable": "^6.5.4",
@@ -20,7 +20,7 @@
     "react-request": "^3.1.2",
     "react-responsive": "^8.1.0",
     "react-router-dom": "^5.2.0",
-    "react-scripts": "3.4.1",
+    "react-scripts": "3.4.3",
     "whatwg-fetch": "^2.0.4"
   },
   "scripts": {
