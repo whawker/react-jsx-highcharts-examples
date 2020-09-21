@@ -111,7 +111,7 @@ const ExampleList = () => (
           <img src="https://user-images.githubusercontent.com/2003804/31632558-4bb0eb12-b2b5-11e7-896e-b62698983402.png" alt="StyleByCSS" />
           <h4>Style By CSS</h4>
         </Link>
-        <p>(Requires <code>react-jsx-highcharts > 2.0.0</code>)</p>
+        <p></p>
       </div>
       <div className="col">
         <Link to="Sparkline">
