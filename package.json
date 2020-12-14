@@ -18,9 +18,9 @@
     "react-jsx-highstock": "^4.2.0",
     "react-prism": "^4.3.2",
     "react-request": "^3.1.2",
-    "react-responsive": "^8.1.1",
+    "react-responsive": "^8.2.0",
     "react-router-dom": "^5.2.0",
-    "react-scripts": "4.0.0",
+    "react-scripts": "4.0.1",
     "whatwg-fetch": "^2.0.4"
   },
   "scripts": {
@@ -36,6 +36,6 @@
     "not op_mini all"
   ],
   "devDependencies": {
-    "sass": "^1.29.0"
+    "sass": "^1.30.0"
   }
 }
