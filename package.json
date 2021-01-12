@@ -15,7 +15,7 @@
     "react-jsx-highcharts": "^4.2.0",
     "react-jsx-highmaps": "^2.2.0",
     "react-jsx-highstock": "^4.2.0",
-    "react-request": "^3.1.2",
+    "react-request": "^3.2.0",
     "react-responsive": "^8.2.0",
     "react-router-dom": "^5.2.0",
     "react-scripts": "4.0.1",
@@ -35,6 +35,6 @@
     "not op_mini all"
   ],
   "devDependencies": {
-    "sass": "^1.30.0"
+    "sass": "^1.32.4"
   }
 }
