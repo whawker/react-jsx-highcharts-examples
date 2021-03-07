@@ -3,22 +3,22 @@
   "version": "0.2.0",
   "private": true,
   "dependencies": {
-    "date-fns": "^2.16.1",
-    "highcharts": "^8.2.2",
-    "lodash": "^4.17.20",
-    "proj4": "^2.6.3",
+    "date-fns": "^2.19.0",
+    "highcharts": "^9.0.1",
+    "lodash": "^4.17.21",
+    "proj4": "^2.7.2",
     "prop-types": "^15.6.1",
     "re-resizable": "^6.9.0",
     "react": "^16.14.0",
     "react-day-picker": "^7.4.8",
     "react-dom": "^16.14.0",
-    "react-jsx-highcharts": "^4.2.0",
-    "react-jsx-highmaps": "^2.2.0",
-    "react-jsx-highstock": "^4.2.0",
+    "react-jsx-highcharts": "^4.2.1",
+    "react-jsx-highmaps": "^2.2.1",
+    "react-jsx-highstock": "^4.2.1",
     "react-request": "^3.2.0",
     "react-responsive": "^8.2.0",
     "react-router-dom": "^5.2.0",
-    "react-scripts": "4.0.1",
+    "react-scripts": "4.0.3",
     "react-syntax-highlighter": "^15.4.3",
     "whatwg-fetch": "^2.0.4"
   },
@@ -35,6 +35,6 @@
     "not op_mini all"
   ],
   "devDependencies": {
-    "sass": "^1.32.4"
+    "sass": "^1.32.8"
   }
 }
