@@ -1,5 +1,5 @@
-import React, { lazy } from 'react';
-import { BrowserRouter, Switch, Route } from 'react-router-dom';
+import { lazy } from 'react';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import ScrollToTop from './ScrollToTop';
 import Example from './Example';
 import ExampleList from './ExampleList';
@@ -37,42 +37,89 @@ const MapBubble = lazy(() => import('./MapBubble'));
 const App = () => (
   <BrowserRouter>
     <ScrollToTop>
-      <Switch>
-        <Route exact path="/" component={ExampleList} />
-        <Route path="/:page">
-          <Example>
-            <Switch>
-              <AsyncRoute path="/SimpleLine" component={SimpleLine} />
-              <AsyncRoute path="/InvertedChart" component={InvertedChart} />
-              <AsyncRoute path="/SplineWithPlotBands" component={SplineWithPlotBands} />
-              <AsyncRoute path="/Combo" component={Combo} />
-              <AsyncRoute path="/Funnel" component={Funnel} />
-              <AsyncRoute path="/AddSeries" component={AddSeries} />
-              <AsyncRoute path="/Events" component={Events} />
-              <AsyncRoute path="/LiveUpdate" component={LiveUpdate} />
-              <AsyncRoute path="/SynchronisedCharts" component={SynchronisedCharts} />
-              <AsyncRoute path="/Reflow" component={Reflow} />
-              <AsyncRoute path="/Loading" component={Loading} />
-              <AsyncRoute path="/Treemap" component={Treemap} />
-              <AsyncRoute path="/TreemapDrilldown" component={TreemapDrilldown} />
-              <AsyncRoute path="/StyleByCSS" component={StyleByCSS} />
-              <AsyncRoute path="/Sparkline" component={Sparkline} />
-              <AsyncRoute path="/3DChart" component={ThreeDChart} />
-              <AsyncRoute path="/Sankey" component={Sankey} />
-              <AsyncRoute path="/DependencyWheel" component={DependencyWheel} />
-              <AsyncRoute path="/StreamGraph" component={StreamGraph} />
-              <AsyncRoute path="/Highstocks" component={Highstocks} />
-              <AsyncRoute path="/HighstockPlotBands" component={HighstockPlotBands} />
-              <AsyncRoute path="/CustomComponent" component={CustomComponent} />
-              <AsyncRoute path="/Responsive" component={Responsive} />
-              <AsyncRoute path="/Gauge" component={Gauge} />
-              <AsyncRoute path="/Polar" component={Polar} />
-              <AsyncRoute path="/Map" component={Map} />
-              <AsyncRoute path="/MapBubble" component={MapBubble} />
-            </Switch>
-          </Example>
+      <Routes>
+        <Route path="/" element={<ExampleList />} />
+        <Route path="/*" element={<Example />}>
+          <Route
+            path="SimpleLine"
+            element={<AsyncRoute component={SimpleLine} />}
+          />
+          <Route
+            path="InvertedChart"
+            element={<AsyncRoute component={InvertedChart} />}
+          />
+          <Route
+            path="SplineWithPlotBands"
+            element={<AsyncRoute component={SplineWithPlotBands} />}
+          />
+          <Route path="Combo" element={<AsyncRoute component={Combo} />} />
+          <Route path="Funnel" element={<AsyncRoute component={Funnel} />} />
+          <Route
+            path="AddSeries"
+            element={<AsyncRoute component={AddSeries} />}
+          />
+          <Route path="Events" element={<AsyncRoute component={Events} />} />
+          <Route
+            path="LiveUpdate"
+            element={<AsyncRoute component={LiveUpdate} />}
+          />
+          <Route
+            path="SynchronisedCharts"
+            element={<AsyncRoute component={SynchronisedCharts} />}
+          />
+          <Route path="Reflow" element={<AsyncRoute component={Reflow} />} />
+          <Route path="Loading" element={<AsyncRoute component={Loading} />} />
+          <Route path="Treemap" element={<AsyncRoute component={Treemap} />} />
+          <Route
+            path="TreemapDrilldown"
+            element={<AsyncRoute component={TreemapDrilldown} />}
+          />
+          <Route
+            path="StyleByCSS"
+            element={<AsyncRoute component={StyleByCSS} />}
+          />
+          <Route
+            path="Sparkline"
+            element={<AsyncRoute component={Sparkline} />}
+          />
+          <Route
+            path="3DChart"
+            element={<AsyncRoute component={ThreeDChart} />}
+          />
+          <Route path="Sankey" element={<AsyncRoute component={Sankey} />} />
+          <Route
+            path="DependencyWheel"
+            element={<AsyncRoute component={DependencyWheel} />}
+          />
+          <Route
+            path="StreamGraph"
+            element={<AsyncRoute component={StreamGraph} />}
+          />
+          <Route
+            path="Highstocks"
+            element={<AsyncRoute component={Highstocks} />}
+          />
+          <Route
+            path="HighstockPlotBands"
+            element={<AsyncRoute component={HighstockPlotBands} />}
+          />
+          <Route
+            path="CustomComponent"
+            element={<AsyncRoute component={CustomComponent} />}
+          />
+          <Route
+            path="Responsive"
+            element={<AsyncRoute component={Responsive} />}
+          />
+          <Route path="Gauge" element={<AsyncRoute component={Gauge} />} />
+          <Route path="Polar" element={<AsyncRoute component={Polar} />} />
+          <Route path="Map" element={<AsyncRoute component={Map} />} />
+          <Route
+            path="MapBubble"
+            element={<AsyncRoute component={MapBubble} />}
+          />
         </Route>
-      </Switch>
+      </Routes>
     </ScrollToTop>
   </BrowserRouter>
 );

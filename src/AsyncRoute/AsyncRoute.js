@@ -3,7 +3,7 @@ import { Route } from 'react-router-dom';
 
 const AsyncRoute = ({ component: Component, fallback, ...rest }) => (
   <Suspense fallback={fallback}>
-    <Route render={props => <Component {...props} />} {...rest} />
+    <Component {...rest} />
   </Suspense>
 );
 
