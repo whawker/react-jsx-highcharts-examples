@@ -18,7 +18,7 @@
     "react-request": "^3.2.0",
     "react-responsive": "^8.2.0",
     "react-router-dom": "^6.1.1",
-    "react-scripts": "4.0.3",
+    "react-scripts": "5.0.0",
     "react-syntax-highlighter": "^15.4.5",
     "whatwg-fetch": "^2.0.4"
   },
