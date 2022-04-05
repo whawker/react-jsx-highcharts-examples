@@ -1,47 +1,50 @@
-export default `// Fetch from 'react-request' library
+export default `// useSWR from 'swr' library
+const fetcher = (...args) => fetch(...args).then(res => res.json());
 
-<Fetch url="https://code.highcharts.com/mapdata/custom/europe.geo.json">
-  {({ fetching, failed, data }) => {
-    if (fetching) return <div>Loading…</div>
-    if (failed) return <div>Failed to load map.</div>
+const Map = () => {
+  const { data, error } = useSWR(
+    'https://code.highcharts.com/mapdata/custom/europe.geo.json',
+    fetcher
+  );
 
-    if (data) {
-      return (
-        <HighmapsProvider Highcharts={Highmaps}>
-          <HighchartsMapChart map={data}>
-            <Title>Nordic countries</Title>
+  if (error) return <div>Failed to load map.</div>;
+  if (!data) return <div>Loading…</div>;
+  return (
+    <div className="app">
+      <HighmapsProvider Highcharts={Highmaps}>
+        <HighchartsMapChart map={data}>
+          <Title>Nordic countries</Title>
 
-            <Subtitle>Demo of drawing all areas in the map, only highlighting partial data</Subtitle>
+          <Subtitle>
+            Demo of drawing all areas in the map, only highlighting partial data
+          </Subtitle>
 
-            <MapSeries
-              name="Area"
-              data={[
-                ['is', 1],
-                ['no', 1],
-                ['se', 1],
-                ['dk', 1],
-                ['fi', 1]
-              ]}
-              dataLabels={{
-                enabled: true,
-                color: '#FFFFFF',
-                format: '{point.name}'
-              }}
-            />
+          <MapSeries
+            name="Area"
+            data={[
+              ['is', 1],
+              ['no', 1],
+              ['se', 1],
+              ['dk', 1],
+              ['fi', 1]
+            ]}
+            dataLabels={{
+              enabled: true,
+              color: '#FFFFFF',
+              format: '{point.name}'
+            }}
+          />
 
-            <MapNavigation>
-              <MapNavigation.ZoomIn/>
-              <MapNavigation.ZoomOut/>
-            </MapNavigation>
+          <MapNavigation>
+            <MapNavigation.ZoomIn />
+            <MapNavigation.ZoomOut />
+          </MapNavigation>
 
-            <Tooltip/>
+          <Tooltip />
 
-            <Credits/>
-          </HighchartsMapChart>
-        </HighmapsProvider>
-      )
-    }
-
-    return null
-  }}
-</Fetch>`
+          <Credits />
+        </HighchartsMapChart>
+      </HighmapsProvider>
+    </div>
+  );
+};`
