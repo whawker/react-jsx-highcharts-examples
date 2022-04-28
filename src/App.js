@@ -4,7 +4,6 @@ import ScrollToTop from './ScrollToTop';
 import Example from './Example';
 import ExampleList from './ExampleList';
 import AsyncRoute from './AsyncRoute';
-import 'whatwg-fetch';
 
 const SimpleLine = lazy(() => import('./SimpleLine'));
 const InvertedChart = lazy(() => import('./InvertedChart'));
