@@ -12,9 +12,9 @@
     "react": "^17.0.2",
     "react-day-picker": "^7.4.10",
     "react-dom": "^17.0.2",
-    "react-jsx-highcharts": "^4.3.2",
-    "react-jsx-highmaps": "^2.3.1",
-    "react-jsx-highstock": "^4.3.2",
+    "react-jsx-highcharts": "^5.0.0",
+    "react-jsx-highmaps": "^3.0.0",
+    "react-jsx-highstock": "^5.0.0",
     "react-responsive": "^8.2.0",
     "react-router-dom": "^6.3.0",
     "react-scripts": "5.0.1",
@@ -35,6 +35,6 @@
     "safari >= 12"
   ],
   "devDependencies": {
-    "sass": "^1.51.0"
+    "sass": "^1.52.0"
   }
 }
