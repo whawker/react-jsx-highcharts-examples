@@ -35,9 +35,16 @@ const delay = (start, ms) => {
   }
 };
 
+const escapePackageName = (name) => {
+  if (name.charAt(0) === '@' && name.indexOf('/') !== -1) {
+    return '@' + encodeURIComponent(name.slice(1));
+  }
+  return name;
+}
+
 const npmApiDownloadsRange = (period, packages) => {
   const now = Date.now();
-  return fetch(`https://api.npmjs.org/downloads/range/${period}/${packages.join(',')}`)
+  return fetch(`https://api.npmjs.org/downloads/range/${period}/${packages.map(escapePackageName).join(',')}`)
     .then(delay(now, 3000)) // Delay at least 3 seconds
     .then(res => {
       if (res.ok) {
@@ -54,10 +61,10 @@ const npmApiDownloadsRange = (period, packages) => {
 
 const frameworks = {
   react: { name: 'React', color: '#61dafb' },
-  angular: { name: 'Angular', color: '#dd1b16' },
   vue: { name: 'Vue.js', color: '#42b983' },
-  'ember-source': { name: 'Ember.js', color: '#dd6a58' },
-  preact: { name: 'Preact', color: '#673ab8' }
+  preact: { name: 'Preact', color: '#673ab8' },
+  svelte: { name: 'Svelte', color: '#ff3e00' },
+  lit: { name: 'Lit', color: '#324fff' }
 };
 
 const plotOptions = {
@@ -119,7 +126,7 @@ class LoadingExample extends Component {
               <XAxis.Title>Date</XAxis.Title>
             </XAxis>
 
-            <YAxis min={0} max={500000}>
+            <YAxis min={1000} type="logarithmic">
               <YAxis.Title>Number of downloads</YAxis.Title>
               {npmPackages.map(this.renderSeries)}
             </YAxis>
