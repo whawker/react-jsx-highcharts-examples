@@ -35,5 +35,10 @@
   ],
   "devDependencies": {
     "sass": "^1.55.0"
+  },
+  "overrides": {
+    "react-day-picker": {
+      "react": "$react"
+    }
   }
 }
