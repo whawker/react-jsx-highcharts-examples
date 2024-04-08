@@ -1,9 +1,11 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import { useHighcharts, useAxis } from 'react-jsx-highstock';
 import DayPickerInput from 'react-day-picker/DayPickerInput';
-import dateParse from 'date-fns/parse';
-import dateFormat from 'date-fns/format';
-import startOfDay from 'date-fns/startOfDay'
+import {
+  parse as dateParse,
+  format as dateFormat,
+  startOfDay
+} from 'date-fns';
 import 'react-day-picker/lib/style.css';
 
 const DAY_FORMAT = 'dd MMM yyyy';

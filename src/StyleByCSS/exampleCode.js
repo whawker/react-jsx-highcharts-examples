@@ -1,6 +1,5 @@
 export default `
-import Highcharts from 'highcharts'; // Highcharts 7+
-// import Highcharts from 'highcharts/js/highcharts'; Highcharts < 7
+import Highcharts from 'highcharts';
 import {
   HighchartsChart, Chart, withHighcharts, XAxis, YAxis, Title, Subtitle, Tooltip, Legend, LineSeries
 } from 'react-jsx-highcharts';
