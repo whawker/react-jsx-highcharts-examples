@@ -1,16 +1,13 @@
 import React, { Component } from 'react';
 import Highcharts from 'highcharts';
-import addHighchartsMore from 'highcharts/highcharts-more';
-import addSolidGaugeModule from 'highcharts/modules/solid-gauge';
+import 'highcharts/highcharts-more';
+import 'highcharts/modules/solid-gauge';
 import {
   HighchartsChart, HighchartsProvider, XAxis, YAxis, Pane, SolidGaugeSeries
 } from 'react-jsx-highcharts';
 import ExampleCode from '../utils/ExampleCode';
 import code from './exampleCode';
 
-// Apply addtional modules
-addHighchartsMore(Highcharts);
-addSolidGaugeModule(Highcharts);
 
 const plotOptions = {
   solidgauge: {

@@ -1,11 +1,7 @@
 export default `
 import Highcharts from 'highcharts';
-import addHeatmapModule from 'highcharts/modules/heatmap';
-import addTreemapModule from 'highcharts/modules/treemap';
-
-// Apply Highcharts modules
-addHeatmapModule(Highcharts);
-addTreemapModule(Highcharts);
+import 'highcharts/modules/heatmap';
+import 'highcharts/modules/treemap';
 
 const colorAxis = {
   minColor: '#FFFFFF',

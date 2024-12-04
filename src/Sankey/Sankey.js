@@ -1,14 +1,11 @@
 import React from 'react';
 import Highcharts from 'highcharts';
-import addSankeyModule from 'highcharts/modules/sankey';
+import 'highcharts/modules/sankey';
 import {
   HighchartsChart, HighchartsProvider, XAxis, YAxis, Title, SankeySeries, Tooltip
 } from 'react-jsx-highcharts';
 import ExampleCode from '../utils/ExampleCode';
 import code from './exampleCode';
-
-// Apply the Sankey module
-addSankeyModule(Highcharts);
 
 const data = {
   Brazil: { Portugal: 5, France: 1, Spain: 1, England: 1 },

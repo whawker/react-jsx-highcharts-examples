@@ -1,16 +1,12 @@
 import React, { Component } from 'react';
 import Highcharts from 'highcharts';
-import addHeatmapModule from 'highcharts/modules/heatmap';
-import addTreemapModule from 'highcharts/modules/treemap';
+import 'highcharts/modules/heatmap';
+import 'highcharts/modules/treemap';
 import {
   HighchartsChart, HighchartsProvider, Title, XAxis, YAxis, TreemapSeries, Legend
 } from 'react-jsx-highcharts';
 import ExampleCode from '../utils/ExampleCode';
 import code from './exampleCode';
-
-// Apply Highcharts modules
-addHeatmapModule(Highcharts);
-addTreemapModule(Highcharts);
 
 const colorAxis = {
   minColor: '#FFFFFF',

@@ -1,16 +1,12 @@
 import React from 'react';
 import Highcharts from 'highcharts';
-import addSankeyModule from 'highcharts/modules/sankey';
-import addDependencyWheelModule from 'highcharts/modules/dependency-wheel';
+import 'highcharts/modules/sankey';
+import 'highcharts/modules/dependency-wheel';
 import {
   HighchartsChart, HighchartsProvider, XAxis, YAxis, Title, DependencyWheelSeries, Tooltip
 } from 'react-jsx-highcharts';
 import ExampleCode from '../utils/ExampleCode';
 import code from './exampleCode';
-
-// Apply the Sankey & Dependency Wheel module
-addSankeyModule(Highcharts);
-addDependencyWheelModule(Highcharts);
 
 const data = {
   Brazil: { Portugal: 5, France: 1, Spain: 1, England: 1 },

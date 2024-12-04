@@ -1,11 +1,8 @@
 export default `
 import Highcharts from 'highcharts';
-import addHeatmapModule from 'highcharts/modules/heatmap';
-import addTreemapModule from 'highcharts/modules/treemap';
+import 'highcharts/modules/heatmap';
+import 'highcharts/modules/treemap';
 
-// Apply Highcharts modules
-addHeatmapModule(Highcharts);
-addTreemapModule(Highcharts);
 
 render () {
   const treeData = this.state.treeData;

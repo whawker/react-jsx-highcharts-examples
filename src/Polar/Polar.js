@@ -1,14 +1,11 @@
 import React from 'react';
 import Highcharts from 'highcharts';
-import addHighchartsMore from 'highcharts/highcharts-more';
+import 'highcharts/highcharts-more';
 import {
   HighchartsChart, HighchartsProvider, XAxis, YAxis, Title, Pane, ColumnSeries, LineSeries, AreaSeries
 } from 'react-jsx-highcharts';
 import ExampleCode from '../utils/ExampleCode';
 import code from './exampleCode';
-
-// Apply Highcharts More module
-addHighchartsMore(Highcharts);
 
 const plotOptions = {
   series: {

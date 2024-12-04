@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Highcharts from 'highcharts';
-import addHighcharts3DModule from 'highcharts/highcharts-3d';
+import 'highcharts/highcharts-3d';
 import {
   Highcharts3dChart, Chart, HighchartsProvider, XAxis, YAxis, ZAxis, Title, Subtitle, ScatterSeries
 } from 'react-jsx-highcharts';
@@ -9,8 +9,6 @@ import ExampleCode from '../utils/ExampleCode';
 import code from './exampleCode';
 const radian = Math.PI / 180;
 
-// Apply the 3D module
-addHighcharts3DModule(Highcharts);
 
 class ThreeDChart extends Component {
 

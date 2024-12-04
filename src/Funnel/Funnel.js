@@ -1,14 +1,11 @@
 import React from 'react';
 import Highcharts from 'highcharts';
-import addFunnelModule from 'highcharts/modules/funnel';
+import 'highcharts/modules/funnel';
 import {
   HighchartsChart, HighchartsProvider, Title, FunnelSeries
 } from 'react-jsx-highcharts';
 import ExampleCode from '../utils/ExampleCode';
 import code from './exampleCode';
-
-// Apply Funnel Module
-addFunnelModule(Highcharts);
 
 const plotOptions = {
   series: {

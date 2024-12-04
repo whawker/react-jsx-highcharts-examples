@@ -1,11 +1,7 @@
 export default `
 import Highcharts from 'highcharts';
-import addSankeyModule from 'highcharts/modules/sankey';
-import addDependencyWheelModule from 'highcharts/modules/dependency-wheel';
-
-// Apply the Sankey & Dependency Wheel module
-addSankeyModule(Highcharts);
-addDependencyWheelModule(Highcharts);
+import 'highcharts/modules/sankey';
+import 'highcharts/modules/dependency-wheel';
 
 const data = {
   Brazil: { Portugal: 5, France: 1, Spain: 1, England: 1 },

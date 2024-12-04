@@ -1,9 +1,6 @@
 export default `
 import Highcharts from 'highcharts';
-import addHighcharts3DModule from 'highcharts/highcharts-3d';
-
-// Apply the 3D module
-addHighcharts3DModule(Highcharts);
+import 'highcharts/highcharts-3d';
 
 <div className="app">
   <HighchartsProvider Highcharts={Highcharts}>

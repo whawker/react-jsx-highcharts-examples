@@ -1,9 +1,6 @@
 export default `
 import Highcharts from 'highcharts';
-import addFunnelModule from 'highcharts/modules/funnel';
-
-// Apply Funnel Module
-addFunnelModule(Highcharts);
+import 'highcharts/modules/funnel';
 
 const plotOptions = {
   series: {

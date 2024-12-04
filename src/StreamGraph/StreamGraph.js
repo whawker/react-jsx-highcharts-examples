@@ -1,15 +1,12 @@
 import React from 'react';
 import Highcharts from 'highcharts';
-import addStreamGraphModule from 'highcharts/modules/streamgraph';
+import 'highcharts/modules/streamgraph';
 import {
   HighchartsChart, HighchartsProvider, Chart, XAxis, YAxis, Title, Subtitle, StreamGraphSeries, Tooltip
 } from 'react-jsx-highcharts';
 import data from './data';
 import ExampleCode from '../utils/ExampleCode';
 import code from './exampleCode';
-
-// Apply the Stream Graph Module
-addStreamGraphModule(Highcharts);
 
 const hosts = [
   '',

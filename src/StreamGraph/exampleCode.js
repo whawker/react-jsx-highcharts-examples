@@ -1,9 +1,6 @@
 export default `
 import Highcharts from 'highcharts';
-import addStreamGraphModule from 'highcharts/modules/streamgraph';
-
-// Apply the Stream Graph Module
-addStreamGraphModule(Highcharts);
+import 'highcharts/modules/streamgraph';
 
 const App = () => {
 

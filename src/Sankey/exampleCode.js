@@ -1,9 +1,6 @@
 export default `
 import Highcharts from 'highcharts';
-import addSankeyModule from 'highcharts/modules/sankey';
-
-// Apply the Sankey module
-addSankeyModule(Highcharts);
+import 'highcharts/modules/sankey';
 
 const data = {
   Brazil: { Portugal: 5, France: 1, Spain: 1, England: 1 },
