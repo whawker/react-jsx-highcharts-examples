@@ -7,10 +7,10 @@
     "highcharts": "^12.0.2",
     "lodash": "^4.17.21",
     "proj4": "^2.15.0",
-    "re-resizable": "^6.10.1",
-    "react": "18.3.1",
+    "re-resizable": "^6.10.3",
+    "react": "19.0.0",
     "react-day-picker": "^7.4.10",
-    "react-dom": "18.3.1",
+    "react-dom": "19.0.0",
     "react-jsx-highcharts": "^5.0.3",
     "react-jsx-highmaps": "^3.0.4",
     "react-jsx-highstock": "^5.0.3",
@@ -18,7 +18,7 @@
     "react-router-dom": "^7.0.2",
     "react-scripts": "5.0.1",
     "react-syntax-highlighter": "^15.6.1",
-    "swr": "2.2.5"
+    "swr": "^2.2.6-beta.5"
   },
   "scripts": {
     "start": "react-scripts start",
