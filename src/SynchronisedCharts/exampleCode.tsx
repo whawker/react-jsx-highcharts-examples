@@ -12,6 +12,7 @@ class SynchronisedCharts extends Component {
       chartData: null
     };
 
+    // Override the Highcharts prototypes here, so they only apply to this example
     Highcharts.Pointer.prototype.reset = () => {};
 
     Highcharts.Point.prototype.highlight = function (event) {
@@ -22,7 +23,7 @@ class SynchronisedCharts extends Component {
   }
 
   componentDidMount () {
-    fetch('./activity.json')
+    fetch('https://gist.githubusercontent.com/whawker/809cae1781f25db5f3c2dd7cee93b017/raw/6906d0406d4cd5be1fab470f4353a132d128a0c1/activity.json')
       .then(res => {
         if (res.ok) {
           return res.json();
@@ -60,7 +61,7 @@ class SynchronisedCharts extends Component {
               type={dataset.type}
               data={data}
               color={colour}
-              tooltip={{ valueSuffix: \` \${dataset.unit}\` }} />
+              tooltip={{ valueSuffix: ` ${dataset.unit}` }} />
           </YAxis>
 
           <Tooltip
@@ -81,6 +82,7 @@ class SynchronisedCharts extends Component {
     let point = null;
     let event = null;
 
+    e.persist();
     Highcharts.charts.forEach(chart => {
       if (!chart) return;
       event = chart.pointer.normalize(e); // Find coordinates within the chart
@@ -91,16 +93,18 @@ class SynchronisedCharts extends Component {
     });
   }
 
-  render () {
+  render() {
     const { chartData } = this.state;
     if (!chartData) return null;
 
     return (
-      <div className="app" onMouseMove={this.handleMouseMove} onTouchMove={this.handleMouseMove}>
-        {chartData.datasets.map(this.renderChart)}
+      <div className="app">
+        <div onMouseMove={this.handleMouseMove} onTouchMove={this.handleMouseMove}>
+          {chartData.datasets.map(this.renderChart)}
+        </div>
+
+        <ExampleCode name="SynchronisedCharts">{code}</ExampleCode>
       </div>
     );
   }
-}
-
-export default withHighcharts(SynchronisedCharts, Highcharts);`;
+}`;

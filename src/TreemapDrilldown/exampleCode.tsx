@@ -21,29 +21,28 @@ render () {
 
   return (
     <div className="app">
-      <HighchartsChart>
-        <Title>Global Mortality Rate 2012, per 100,000 population</Title>
+        <HighchartsProvider Highcharts={Highcharts}>
+          <HighchartsChart>
+            <Title>Global Mortality Rate 2012, per 100,000 population</Title>
 
-        <Subtitle>Click points to drill down. Source: WHO.</Subtitle>
+            <Subtitle>Click points to drill down. Source: WHO.</Subtitle>
 
-        <XAxis />
+            <XAxis />
 
-        <YAxis>
-          <TreemapSeries
-            data={treeData}
-            allowDrillToNode
-            layoutAlgorithm="squarified"
-            animationLimit={1000}
-            dataLabels={{ enabled: false }}
-            levelIsConstant={false}
-            levels={levels} />
-        </YAxis>
+            <YAxis>
+              <TreemapSeries
+                data={treeData}
+                allowDrillToNode
+                layoutAlgorithm="squarified"
+                animationLimit={1000}
+                dataLabels={{ enabled: false }}
+                levelIsConstant={false}
+                levels={levels} />
+            </YAxis>
 
-        <Tooltip formatter={tooltipFormatter} />
-      </HighchartsChart>
+            <Tooltip formatter={tooltipFormatter} />
+          </HighchartsChart>
+        </HighchartsProvider>
     </div>
   );
-}
-
-// Remember to inject Highcharts to exported component
-export default withHighcharts(MyComponent, Highcharts);`;
+}`;
