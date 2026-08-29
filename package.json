@@ -1,7 +1,7 @@
 {
   "name": "react-jsx-highcharts-examples",
   "version": "0.2.0",
-  "type":"module",
+  "type": "module",
   "private": true,
   "dependencies": {
     "@types/react": "^19.2.18",
@@ -28,6 +28,9 @@
   "scripts": {
     "start": "vite",
     "build": "vite build"
+  },
+  "engines": {
+    "node": ">=24"
   },
   "browserslist": [
     "chrome >= 81",
