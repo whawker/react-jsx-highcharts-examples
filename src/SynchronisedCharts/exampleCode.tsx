@@ -61,7 +61,7 @@ class SynchronisedCharts extends Component {
               type={dataset.type}
               data={data}
               color={colour}
-              tooltip={{ valueSuffix: ` ${dataset.unit}` }} />
+              tooltip={{ valueSuffix: \` \${dataset.unit}\` }} />
           </YAxis>
 
           <Tooltip
