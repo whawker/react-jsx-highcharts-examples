@@ -1,9 +1,9 @@
-import React, { Component } from 'react';
+import { Component } from 'react';
 import {
   HighchartsChart, HighchartsProvider, Title, Subtitle, XAxis, YAxis, LineSeries, Legend, Tooltip, Loading
 } from 'react-jsx-highcharts';
 import Highcharts from 'highcharts';
-import mapValues from 'lodash/mapValues';
+import { mapValues } from 'es-toolkit';
 import ExampleCode from '../utils/ExampleCode';
 import code from './exampleCode';
 

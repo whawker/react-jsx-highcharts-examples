@@ -4,8 +4,8 @@ import {
   HighchartsChart, Chart, HighchartsProvider, XAxis, YAxis, Title, Subtitle, Legend, Tooltip
 } from 'react-jsx-highcharts';
 import MediaQuery from 'react-responsive';
-import range from 'lodash/range';
-import map from 'lodash/map';
+import { range } from 'es-toolkit';
+import { map } from 'es-toolkit/compat';
 import LeagueTableSection from './LeagueTableSection';
 import TeamSeries from './TeamSeries';
 import { getOrdinal, teamData } from './data';
