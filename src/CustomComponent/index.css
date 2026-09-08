@@ -1,6 +1,6 @@
 .custom-component-chart {
   overflow: visible !important;
-  padding-top: 20px;
+  padding-top: 30px;
   position: relative;
 }
 
@@ -8,12 +8,19 @@
   position: absolute;
   top: 0;
   right: 0;
+  display: flex;
+  align-items: center;
 }
 
-.custom-component-chart .DayPickerInput > input {
+.custom-component-chart .react-datepicker__input-container > input {
   text-align: center;
 }
 
 .custom-component-chart .date-range-pickers__to-label {
   margin-left: 1rem;
+  margin-right: 1rem;
+}
+
+.custom-component-chart .date-range-pickers__from-label {
+  margin-right: 1rem;
 }

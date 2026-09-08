@@ -1,7 +1,15 @@
-import React, { Component } from 'react';
 import Highcharts from 'highcharts/highstock';
 import {
-  HighchartsStockChart, Chart, HighchartsProvider, XAxis, YAxis, Title, Subtitle, Legend, AreaSplineSeries, Navigator
+  HighchartsStockChart,
+  Chart,
+  HighchartsProvider,
+  XAxis,
+  YAxis,
+  Title,
+  Subtitle,
+  Legend,
+  AreaSplineSeries,
+  Navigator
 } from 'react-jsx-highstock';
 import ExampleCode from '../utils/ExampleCode';
 import code from './exampleCode';
@@ -9,54 +17,42 @@ import DateRangePickers from './DateRangePickers';
 import { createRandomData } from '../utils/data-helpers';
 import './index.css';
 
-class App extends Component {
+const data1 = createRandomData(Date.now(), 1e8);
 
-  constructor (props) {
-    super(props);
+const App = () => {
+  return (
+    <div className="app">
+      <HighchartsProvider Highcharts={Highcharts}>
+        <HighchartsStockChart className="custom-component-chart">
+          <Chart zoomType="x" />
 
-    const now = Date.now();
-    this.state = {
-      data1: createRandomData(now, 1e8)
-    };
-  }
+          <Title>Custom Components</Title>
 
-  render() {
-    const { data1 } = this.state;
+          <Subtitle>react-day-picker Date Pickers</Subtitle>
 
-    return (
-      <div className="app">
-        <HighchartsProvider Highcharts={Highcharts}>
-          <HighchartsStockChart className="custom-component-chart">
-            <Chart zoomType="x" />
+          <Legend>
+            <Legend.Title>Key</Legend.Title>
+          </Legend>
 
-            <Title>Custom Components</Title>
+          <XAxis>
+            <XAxis.Title>Time</XAxis.Title>
+          </XAxis>
 
-            <Subtitle>react-day-picker Date Pickers</Subtitle>
+          <YAxis>
+            <YAxis.Title>Price</YAxis.Title>
+            <AreaSplineSeries id="profit" name="Profit" data={data1} />
+          </YAxis>
 
-            <Legend>
-              <Legend.Title>Key</Legend.Title>
-            </Legend>
+          <DateRangePickers />
 
-            <XAxis>
-              <XAxis.Title>Time</XAxis.Title>
-            </XAxis>
-
-            <YAxis>
-              <YAxis.Title>Price</YAxis.Title>
-              <AreaSplineSeries id="profit" name="Profit" data={data1} />
-            </YAxis>
-
-            <DateRangePickers />
-
-            <Navigator>
-              <Navigator.Series seriesId="profit" />
-            </Navigator>
-          </HighchartsStockChart>
-        </HighchartsProvider>
-        <ExampleCode name="CustomComponent">{code}</ExampleCode>
-      </div>
-    );
-  }
-}
+          <Navigator>
+            <Navigator.Series seriesId="profit" />
+          </Navigator>
+        </HighchartsStockChart>
+      </HighchartsProvider>
+      <ExampleCode name="CustomComponent">{code}</ExampleCode>
+    </div>
+  );
+};
 
 export default App;

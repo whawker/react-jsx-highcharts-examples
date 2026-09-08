@@ -13,7 +13,7 @@
     "proj4": "^2.21.0",
     "re-resizable": "^6.11.2",
     "react": "19.2.8",
-    "react-day-picker": "^7.4.10",
+    "react-datepicker": "^9.1.0",
     "react-dom": "19.2.8",
     "react-jsx-highcharts": "^5.0.4",
     "react-jsx-highmaps": "^3.0.5",
@@ -41,10 +41,5 @@
   ],
   "devDependencies": {
     "sass": "^1.74.1"
-  },
-  "overrides": {
-    "react-day-picker": {
-      "react": "$react"
-    }
   }
 }
