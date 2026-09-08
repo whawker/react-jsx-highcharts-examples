@@ -1,7 +1,7 @@
 export default `
 <HighchartsProvider Highcharts={Highcharts}>
   <HighchartsChart>
-    <Chart zoomType="xy" onClick={this.handleClick} />
+    <Chart zoomType="xy" onClick={handleClick} />
 
     <Title>Click to add data</Title>
 
@@ -16,7 +16,7 @@ export default `
     <YAxis>
       <YAxis.Title>Y Coord</YAxis.Title>
       <ScatterSeries name="My clicks" data={myClicks} />
-      <ScatterSeries name="Your clicks" data={userClicks} onHide={this.handleHide} onShow={this.handleShow} />
+      <ScatterSeries name="Your clicks" data={userClicks} onHide={handleHide} onShow={handleShow} />
     </YAxis>
   </HighchartsChart>
 </HighchartsProvider>`;
